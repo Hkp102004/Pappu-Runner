@@ -6,6 +6,7 @@ public class playerBehaviour : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private float speed = 10f;
+    [SerializeField] private float height = 400f;
     void Start()
     {
         
@@ -26,6 +27,11 @@ public class playerBehaviour : MonoBehaviour
         if(transform.position.x <= -9.3f)
         {
             transform.position = new Vector3(-9.3f, transform.position.y, transform.position.z);
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            transform.Translate(Vector3.up * height * Time.deltaTime);
         }
     }
 }
