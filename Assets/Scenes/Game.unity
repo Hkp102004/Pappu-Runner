@@ -2192,6 +2192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::playerBehaviour
   speed: 10
   height: 400
+  jump: 1
 --- !u!50 &1795047592
 Rigidbody2D:
   serializedVersion: 5
