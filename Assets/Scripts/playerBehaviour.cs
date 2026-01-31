@@ -8,6 +8,7 @@ public class playerBehaviour : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private float speed = 10f;
     [SerializeField] private float height = 300f;
+    [SerializeField] private bool Jumpie = true;
     private int count = 0;
     void Start()
     {
@@ -39,17 +40,23 @@ public class playerBehaviour : MonoBehaviour
 
     public void Jump() //jump function 
     {
-        if(count < 2)
+        if(Jumpie)
         {
             transform.Translate(Vector3.up * height * Time.deltaTime);
             count++;
-            StartCoroutine(JumpCooldown()); //cooldown for jump
+            //StartCoroutine(JumpCooldown()); //cooldown for jump
+        }
+        if(count == 2)
+        {
+            Jumpie = false;
+            StartCoroutine(JumpCooldown());
         }
     }
 
     IEnumerator JumpCooldown() //cooldown for jump to wait 2 seconds
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
         count = 0;
+        Jumpie = true;
     }
 }
