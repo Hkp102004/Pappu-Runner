@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -40,6 +41,15 @@ public class playerBehaviour : MonoBehaviour
             body.linearVelocity = new Vector3(body.linearVelocityX,0,0);
             body.AddForce(Vector3.up * height, ForceMode2D.Impulse);
             jumpcount++;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //Debug.Log(collision.gameObject.tag);
+        if(collision.gameObject.tag == "Ground")
+        {
+            jumpcount=0;
         }
     }
 
