@@ -6,15 +6,13 @@ public class bullet : MonoBehaviour
     [SerializeField] private float speed = 15f; //the speed of the bullet
     [SerializeField] private float deathzone = 18; //the distance after which the bullet should be destroyed
     [SerializeField] private Transform player; //refernce of player position
-    playerBehaviour Player;
 
     void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<playerBehaviour>();
-        if(Player == null)
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        if(player==null)
         {
-            Debug.LogError("playerBehaviour script is missing in this mf");
-            return;
+            Debug.LogError("Transform of player is missing in bullet script");
         }
     }
 
