@@ -14,7 +14,7 @@ public class playerBehaviour : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab; //prefaab of the bullet that will be instantiated
     private int jumpcount = 0;
     private int maxjump = 2;
-    private int lives = 3;
+    [SerializeField]private int lives = 3;
     void Start()
     {
        if(bulletPrefab==null)
