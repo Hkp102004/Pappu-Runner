@@ -12,9 +12,9 @@ public class playerBehaviour : MonoBehaviour
     [SerializeField] private float speed = 10f;
     [SerializeField] private float height = 400f;
     [SerializeField] private GameObject bulletPrefab; //prefaab of the bullet that will be instantiated
-    //[SerializeField] private bool Jumpie = true;
     private int jumpcount = 0;
     private int maxjump = 2;
+    private int lives = 3;
     void Start()
     {
        if(bulletPrefab==null)
@@ -69,6 +69,18 @@ public class playerBehaviour : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E))
         {
             Instantiate(bulletPrefab, transform.position + new Vector3(0.9f,0,0), Quaternion.Euler(0,0,90));     
+        }
+    }
+
+    public void Damage()
+    {
+        if(lives>0)
+        {
+            lives--;
+        }
+        if(lives==0)
+        {
+            Destroy(gameObject);
         }
     }
 
