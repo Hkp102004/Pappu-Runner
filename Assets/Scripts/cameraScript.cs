@@ -8,7 +8,11 @@ public class cameraScript : MonoBehaviour
 
     void Start()
     {
-        
+        if(player == null)
+        {
+            Debug.LogError("Player transform is missing in camera script");
+            return;
+        }
     }
 
 

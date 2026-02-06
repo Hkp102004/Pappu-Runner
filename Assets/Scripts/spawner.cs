@@ -6,7 +6,7 @@ public class spawner : MonoBehaviour
     [SerializeField] private GameObject rock; //the rock prefab that should be sopwaned again and again
     [SerializeField] private float spawnRate = 2f; //the rate at which the bopulders should be spawned
     [SerializeField] private Transform player_position;
-    [SerializeField] private bool active;
+    [SerializeField] private bool active = true;
     playerBehaviour playerScript;
 
 
