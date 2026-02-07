@@ -21,3 +21,4 @@ public class cameraScript : MonoBehaviour
         transform.position = new Vector3(player.position.x + offset.x ,offset.y,offset.z);
     }
 }
+    
