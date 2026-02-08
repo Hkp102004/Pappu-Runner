@@ -16,6 +16,7 @@ public class playerBehaviour : MonoBehaviour
     private int jumpcount = 0;
     private int maxjump = 2;
     [SerializeField] public int lives = 3;
+    [SerializeField] private Animator animator;
     void Start()
     {
        if(bulletPrefab==null)
