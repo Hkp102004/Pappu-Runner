@@ -33,11 +33,11 @@ public class spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(player_position.position.x + 17, transform.position.y, transform.position.z);
+        transform.position = new Vector3(player_position.position.x + 17, player_position.position.y, transform.position.z);
 
         if(spawnRate <= 0 && active)
         {
-            Instantiate(rock, new Vector3(transform.position.x, player_position.position.y + Random.Range(-0.9f,5f), transform.position.z), Quaternion.identity);
+            Instantiate(rock, new Vector3(transform.position.x,Random.Range(-0.9f,5f), transform.position.z), Quaternion.identity);
             spawnRate =2f;
         }
         else
