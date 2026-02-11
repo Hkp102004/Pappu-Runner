@@ -9,7 +9,7 @@ public class thorns : MonoBehaviour
     [SerializeField] private float distance = 10;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
