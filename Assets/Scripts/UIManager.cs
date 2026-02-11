@@ -1,8 +1,13 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private Text messageText;
+    [SerializeField] private float waitTime;
     void Start()
     {
         
@@ -12,5 +17,18 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ShowMessage(string msg)
+    {
+        messageText.text = msg;
+        messageText.gameObject.SetActive(true);
+        StartCoroutine(MessageCooldown());
+    }
+
+    IEnumerator MessageCooldown()
+    {
+        yield return new WaitForSeconds(waitTime);
+        messageText.gameObject.SetActive(false);
     }
 }
