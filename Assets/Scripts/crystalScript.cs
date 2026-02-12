@@ -9,7 +9,11 @@ public class crystalScript : MonoBehaviour
     public UIManager uIManager;
     void Start()
     {
-        
+        if(uIManager==null)
+        {
+            Debug.LogError("UI manager is missing in one of the crystal");
+            return;
+        }
     }
 
     // Update is called once per frame

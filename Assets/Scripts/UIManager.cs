@@ -10,7 +10,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private float waitTime;
     void Start()
     {
-        
+        messageText.gameObject.SetActive(false);
+        if(messageText==null)
+        {
+            Debug.LogError("message text is missing from uimanager script");
+            return;
+        }
     }
 
     // Update is called once per frame
