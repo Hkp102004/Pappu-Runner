@@ -508,7 +508,7 @@ GameObject:
   - component: {fileID: 26971891}
   m_Layer: 0
   m_Name: Spawner
-  m_TagString: Untagged
+  m_TagString: Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -870,6 +870,10 @@ PrefabInstance:
     - target: {fileID: 2218547927634307510, guid: be95971fba02e174d92d802b011f3d19, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4703419934170855877, guid: be95971fba02e174d92d802b011f3d19, type: 3}
+      propertyPath: message
+      value: Hey Cutie, welcome to your very personal game. I Love you ;)
       objectReference: {fileID: 0}
     - target: {fileID: 4703419934170855877, guid: be95971fba02e174d92d802b011f3d19, type: 3}
       propertyPath: uIManager
@@ -22866,6 +22870,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4703419934170855877, guid: be95971fba02e174d92d802b011f3d19, type: 3}
+      propertyPath: message
+      value: Remember when we met? A random GC, ngl never thought I would find my
+        soulmate there
+      objectReference: {fileID: 0}
+    - target: {fileID: 4703419934170855877, guid: be95971fba02e174d92d802b011f3d19, type: 3}
       propertyPath: uIManager
       value: 
       objectReference: {fileID: 1968462693}
@@ -22900,7 +22909,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1664719389
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22917,8 +22926,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000047684, y: 516}
-  m_SizeDelta: {x: 3867.4473, y: 229.2136}
+  m_AnchoredPosition: {x: 0.000047684, y: 110.87903}
+  m_SizeDelta: {x: 3867.4473, y: 1039.4554}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1664719390
 MonoBehaviour:
@@ -22941,12 +22950,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 181
+    m_Font: {fileID: 12800000, guid: 0879dc40f92185242bb81ab0eb2a28b7, type: 3}
+    m_FontSize: 242
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 181
+    m_MaxSize: 242
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1

@@ -9,9 +9,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Text messageText;
     [SerializeField] private float waitTime;
     [SerializeField] private Text score;
+    spawner spawn;
     private int scorevar=0;
     void Start()
     {
+        spawn = GameObject.FindGameObjectWithTag("Spawner").GetComponent<spawner>();
         messageText.gameObject.SetActive(false);
         if(messageText==null)
         {
@@ -21,6 +23,11 @@ public class UIManager : MonoBehaviour
         if(score==null)
         {
             Debug.LogError("The score text or memory crystal text is missing in uiscript");
+            return;
+        }
+        if(spawn==null)
+        {
+            Debug.LogError("Spawner script is missing in UIManager script");
             return;
         }
     }
@@ -36,6 +43,7 @@ public class UIManager : MonoBehaviour
         messageText.text = msg;
         messageText.gameObject.SetActive(true);
         scorevar+=1;
+        spawn.active = false;
         StartCoroutine(MessageCooldown());
     }
 
@@ -43,5 +51,6 @@ public class UIManager : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         messageText.gameObject.SetActive(false);
+        spawn.active= true;
     }
 }

@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - Rock
   - UI
+  - Spawner
   layers:
   - Default
   - TransparentFX
