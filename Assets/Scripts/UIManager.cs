@@ -9,11 +9,15 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Text messageText;
     [SerializeField] private float waitTime;
     [SerializeField] private Text score;
+    [SerializeField] private Sprite[] lives_images; //array of lives display
     spawner spawn;
+    playerBehaviour player;
     private int scorevar=0;
     void Start()
     {
         spawn = GameObject.FindGameObjectWithTag("Spawner").GetComponent<spawner>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<playerBehaviour>();
+
         messageText.gameObject.SetActive(false);
         if(messageText==null)
         {
@@ -28,6 +32,11 @@ public class UIManager : MonoBehaviour
         if(spawn==null)
         {
             Debug.LogError("Spawner script is missing in UIManager script");
+            return;
+        }
+        if(player==null)
+        {
+            Debug.LogError("playerBehaviour script is missing in uimanager script");
             return;
         }
     }
