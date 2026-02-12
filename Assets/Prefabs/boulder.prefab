@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   player: {fileID: 0}
-  speed: 15
+  speed: 7
   deathzone: 18
   explosion: {fileID: 0}
 --- !u!50 &5598244014340369596
