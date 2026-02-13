@@ -21,6 +21,7 @@ public class playerBehaviour : MonoBehaviour
     [SerializeField] private bool shieldactive = false;
     [SerializeField] private GameObject shield;
     [SerializeField] private AudioSource jumpSound;
+    [SerializeField] private AudioSource shieldRecharge;
     UIManager ui;
     spawner spawnerScript;
 
@@ -60,6 +61,11 @@ public class playerBehaviour : MonoBehaviour
         if(shield == null)
         {
             Debug.LogError("Shield is missing in playerBehaviour script");
+            return;
+        }
+        if(shieldRecharge == null)
+        {
+            Debug.LogError("Shield recharge audio source is missing in playerBehaviour script");
             return;
         }
     }
@@ -176,6 +182,7 @@ public class playerBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(7f);
         shieldactive = true;
+        shieldRecharge.Play();
     }
 
 }
