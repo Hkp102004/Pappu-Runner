@@ -22,6 +22,8 @@ public class playerBehaviour : MonoBehaviour
     [SerializeField] private GameObject shield;
     [SerializeField] private AudioSource jumpSound;
     [SerializeField] private AudioSource shieldRecharge;
+    [SerializeField] private AudioSource ShootingSound;
+    [SerializeField] private AudioSource shieldSound;
     UIManager ui;
     spawner spawnerScript;
 
@@ -66,6 +68,16 @@ public class playerBehaviour : MonoBehaviour
         if(shieldRecharge == null)
         {
             Debug.LogError("Shield recharge audio source is missing in playerBehaviour script");
+            return;
+        }
+        if(ShootingSound == null)
+        {
+            Debug.LogError("Shooting sould or audio source is missing in playerBehavior script");
+            return;
+        }
+        if(shieldSound == null)
+        {
+            Debug.LogError("Shield sound is missing in playerNehaviour script");
             return;
         }
     }
@@ -160,6 +172,7 @@ public class playerBehaviour : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Q) && shieldactive)
         {
             shield.gameObject.SetActive(true);
+            shieldSound.Play();
             StartCoroutine(ShieldOverload());
             StartCoroutine(ShieldCooldown());
         }
@@ -168,19 +181,20 @@ public class playerBehaviour : MonoBehaviour
     IEnumerator ShootingDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
+        ShootingSound.Play();
         Instantiate(bulletPrefab, transform.position + new Vector3(0.9f,0.35f,0), Quaternion.Euler(0,0,90));
     }
 
     IEnumerator ShieldOverload()  
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
         shield.gameObject.SetActive(false);
         shieldactive = false;
     }
     
     IEnumerator ShieldCooldown()
     {
-        yield return new WaitForSeconds(7f);
+        yield return new WaitForSeconds(10f);
         shieldactive = true;
         shieldRecharge.Play();
     }
