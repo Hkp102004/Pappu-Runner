@@ -24,6 +24,7 @@ public class playerBehaviour : MonoBehaviour
     [SerializeField] private AudioSource shieldRecharge;
     [SerializeField] private AudioSource ShootingSound;
     [SerializeField] private AudioSource shieldSound;
+    private bool invincible;
     UIManager ui;
     spawner spawnerScript;
 
@@ -155,7 +156,7 @@ public class playerBehaviour : MonoBehaviour
 
     public void Damage()
     {
-        if(lives>0 && !shieldactive) //nug should be fixed here
+        if(lives>0 && !invincible) //bug should be fixed here
         {
             lives--;
             ui.UpdateLive(lives);
@@ -174,6 +175,7 @@ public class playerBehaviour : MonoBehaviour
         {
             shield.gameObject.SetActive(true);
             shieldSound.Play();
+            invincible = true;
             StartCoroutine(ShieldOverload());
             StartCoroutine(ShieldCooldown());
         }
@@ -199,6 +201,7 @@ public class playerBehaviour : MonoBehaviour
         yield return new WaitForSeconds(4f);
         shield.gameObject.SetActive(false);
         shieldactive = false;
+        invincible = false;
     }
     
     IEnumerator ShieldCooldown()
