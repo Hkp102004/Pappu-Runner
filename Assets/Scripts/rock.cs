@@ -55,7 +55,7 @@ public class rock : MonoBehaviour
         {
             playerScript.Damage();
             speed = 0;
-            rockCollider.enabled = false;
+            rockCollider.enabled = false; //this will turn off the collision 
             explosion.SetTrigger("blast");
             Destroy(gameObject,1.2f);
         }
@@ -70,6 +70,7 @@ public class rock : MonoBehaviour
         if(collision.gameObject.tag == "Ground")
         {
             speed =0;
+            rockCollider.enabled = false;
             explosion.SetTrigger("blast");
             Destroy(gameObject,1.2f);
         }
