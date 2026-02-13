@@ -28,6 +28,8 @@ public class playerBehaviour : MonoBehaviour
        animator = GetComponent<Animator>();
        ui = GameObject.FindGameObjectWithTag("UI").GetComponent<UIManager>();
        spawnerScript = GameObject.FindGameObjectWithTag("Spawner").GetComponent<spawner>();
+       shield.gameObject.SetActive(false);
+       shieldactive = true;
        if(bulletPrefab==null)
         {
             Debug.LogError("Bullet prefab is missing in playerBehaviour script");
@@ -53,12 +55,18 @@ public class playerBehaviour : MonoBehaviour
             Debug.LogError("Spawner script is missing in player script");
             return;
         }
+        if(shield == null)
+        {
+            Debug.LogError("Shield is missing in playerBehaviour script");
+            return;
+        }
     }
     // Update is called once per frame
     void Update()
     {
         Movement();
         Shoot();
+        Shield();
     }
 
     public void Movement()
@@ -144,6 +152,7 @@ public class playerBehaviour : MonoBehaviour
         {
             shield.gameObject.SetActive(true);
             StartCoroutine(ShieldOverload());
+            StartCoroutine(ShieldCooldown());
         }
     }
 
@@ -157,6 +166,13 @@ public class playerBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         shield.gameObject.SetActive(false);
+        shieldactive = false;
+    }
+    
+    IEnumerator ShieldCooldown()
+    {
+        yield return new WaitForSeconds(7f);
+        shieldactive = true;
     }
 
 }
