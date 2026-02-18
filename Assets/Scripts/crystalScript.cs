@@ -26,8 +26,8 @@ public class crystalScript : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            uIManager.ShowMessage(message);
             Destroy(gameObject);
+            uIManager.AddScore();
         }
     }
 }

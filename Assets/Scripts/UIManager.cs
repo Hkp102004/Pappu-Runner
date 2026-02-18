@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField] private Text messageText;
     [SerializeField] private float waitTime;
     [SerializeField] private Text score;
     [SerializeField] private Sprite[] lives_images; //array of lives display
@@ -24,14 +23,7 @@ public class UIManager : MonoBehaviour
     {
         spawn = GameObject.FindGameObjectWithTag("Spawner").GetComponent<spawner>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<playerBehaviour>();
-
-        messageText.gameObject.SetActive(false);
         gameover_Screen.gameObject.SetActive(false);
-        if(messageText==null)
-        {
-            Debug.LogError("message text is missing from uimanager script");
-            return;
-        }
         if(score==null)
         {
             Debug.LogError("The score text or memory crystal text is missing in uiscript");
@@ -84,25 +76,14 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        score.text = scorevar.ToString();
-
+        
     }
 
-    public void ShowMessage(string msg)
+    public void AddScore()
     {
-        messageText.text = msg;
         CollectionSound.Play();
-        messageText.gameObject.SetActive(true);
         scorevar+=1;
-        spawn.StopSpawning();
-        StartCoroutine(MessageCooldown());
-    }
-
-    IEnumerator MessageCooldown()
-    {
-        yield return new WaitForSeconds(waitTime);
-        messageText.gameObject.SetActive(false);
-        spawn.RestartSpawn(); //this will start spawning again
+        score.text = scorevar.ToString();
     }
 
     public void UpdateLive(int lives)
@@ -115,6 +96,7 @@ public class UIManager : MonoBehaviour
     {
         gameover_Screen.gameObject.SetActive(true);
         GameOverSound.Play();
+        spawn.StopSpawning();
     }
 
     public void WinScreen()

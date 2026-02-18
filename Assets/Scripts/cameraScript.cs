@@ -1,4 +1,5 @@
 //using UnityEditor.Rendering.Universal;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -9,19 +10,12 @@ public class cameraScript : MonoBehaviour
     [SerializeField] private Vector3 offset;
     [SerializeField] private float smoothSpeed;
 
-    void Start()
-    {
-        if(player == null)
-        {
-            Debug.LogError("Player transform is missing in camera script");
-            return;
-        }
-    }
-
-
     void LateUpdate()
     {
-        if (player == null) return;
+        if (player == null)
+        {
+            return;
+        }
 
         Vector3 desiredPosition = player.position + offset;
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
