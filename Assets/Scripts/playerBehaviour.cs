@@ -26,13 +26,11 @@ public class playerBehaviour : MonoBehaviour
     [SerializeField] private AudioSource shieldSound;
     private bool invincible;
     UIManager ui;
-    spawner spawnerScript;
 
     void Start()
     {
        animator = GetComponent<Animator>();
        ui = GameObject.FindGameObjectWithTag("UI").GetComponent<UIManager>();
-       spawnerScript = GameObject.FindGameObjectWithTag("Spawner").GetComponent<spawner>();
        shield.gameObject.SetActive(false);
        shieldactive = true;
        jumpSound = GetComponent<AudioSource>(); //this will get the audio source
@@ -54,11 +52,6 @@ public class playerBehaviour : MonoBehaviour
         if(ui == null)
         {
             Debug.LogError("UIManager script is missing from playerBehaviour script");
-            return;
-        }
-        if(spawnerScript == null)
-        {
-            Debug.LogError("Spawner script is missing in player script");
             return;
         }
         if(shield == null)
@@ -165,7 +158,6 @@ public class playerBehaviour : MonoBehaviour
         {
             Destroy(gameObject);
             ui.DeadScreen();
-            spawnerScript.StopSpawning();
         }
     }
 
