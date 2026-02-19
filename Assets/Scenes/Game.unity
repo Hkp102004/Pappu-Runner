@@ -1497,7 +1497,7 @@ PrefabInstance:
       objectReference: {fileID: 1968462693}
     - target: {fileID: 9084014714193201375, guid: be95971fba02e174d92d802b011f3d19, type: 3}
       propertyPath: m_Name
-      value: memory crystal
+      value: votes
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23116,7 +23116,7 @@ PrefabInstance:
       objectReference: {fileID: 1968462693}
     - target: {fileID: 9084014714193201375, guid: be95971fba02e174d92d802b011f3d19, type: 3}
       propertyPath: m_Name
-      value: memory crystal (3)
+      value: votes
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23472,7 +23472,7 @@ PrefabInstance:
       objectReference: {fileID: 1968462693}
     - target: {fileID: 9084014714193201375, guid: be95971fba02e174d92d802b011f3d19, type: 3}
       propertyPath: m_Name
-      value: memory crystal (5)
+      value: votes
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23551,7 +23551,7 @@ PrefabInstance:
       objectReference: {fileID: 1968462693}
     - target: {fileID: 9084014714193201375, guid: be95971fba02e174d92d802b011f3d19, type: 3}
       propertyPath: m_Name
-      value: memory crystal (1)
+      value: votes
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24175,7 +24175,7 @@ PrefabInstance:
       objectReference: {fileID: 1968462693}
     - target: {fileID: 9084014714193201375, guid: be95971fba02e174d92d802b011f3d19, type: 3}
       propertyPath: m_Name
-      value: memory crystal (2)
+      value: votes
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25848,7 +25848,7 @@ PrefabInstance:
       objectReference: {fileID: 1968462693}
     - target: {fileID: 9084014714193201375, guid: be95971fba02e174d92d802b011f3d19, type: 3}
       propertyPath: m_Name
-      value: memory crystal
+      value: votes
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26645,7 +26645,7 @@ PrefabInstance:
       objectReference: {fileID: 1968462693}
     - target: {fileID: 9084014714193201375, guid: be95971fba02e174d92d802b011f3d19, type: 3}
       propertyPath: m_Name
-      value: memory crystal (4)
+      value: votes
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27088,7 +27088,7 @@ PrefabInstance:
       objectReference: {fileID: 1968462693}
     - target: {fileID: 9084014714193201375, guid: be95971fba02e174d92d802b011f3d19, type: 3}
       propertyPath: m_Name
-      value: memory crystal
+      value: votes
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
