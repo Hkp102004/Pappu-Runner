@@ -905,7 +905,7 @@ Camera:
   m_GameObject: {fileID: 330585543}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.86415094, g: 0.46794587, b: 0.46794587, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -26222,7 +26222,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 647102364726852362, guid: a6581d80ea0184843a1316b70b16cc22, type: 3}
   firerate: 0.3
   lives: 3
-  animator: {fileID: 0}
   shootdelay: 0.2
   shieldactive: 1
   shield: {fileID: 2051928853}
@@ -26941,7 +26940,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1973711389
 SpriteRenderer:
   serializedVersion: 2
@@ -26999,7 +26998,7 @@ SpriteRenderer:
   m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1973711390
 MonoBehaviour:
