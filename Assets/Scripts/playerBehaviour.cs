@@ -16,7 +16,7 @@ public class playerBehaviour : MonoBehaviour
     private int jumpcount = 0;
     private int maxjump = 2;
     [SerializeField] private int lives = 3; //this is for lives of player
-    [SerializeField] private Animator animator; //this is for the animation
+    // [SerializeField] private Animator animator; //this is for the animation   //work on progress
     [SerializeField] private float shootdelay = 0.3f;
     [SerializeField] private bool shieldactive = false;
     [SerializeField] private GameObject shield;
@@ -30,7 +30,7 @@ public class playerBehaviour : MonoBehaviour
 
     void Start()
     {
-       animator = GetComponent<Animator>();
+    //    animator = GetComponent<Animator>();
        ui = GameObject.FindGameObjectWithTag("UI").GetComponent<UIManager>();
        shield.gameObject.SetActive(false);
        jumpSound = GetComponent<AudioSource>(); //this will get the audio source
@@ -46,11 +46,11 @@ public class playerBehaviour : MonoBehaviour
             Debug.LogError("Rigidbody2D is missing in playerBehvaiour scipt");
             return;
         }
-        if(animator == null)
-        {
-            Debug.LogError("Animator is missing in playerBehaviour script");
-            return;
-        }
+        // if(animator == null)  //work on progress
+        // {
+        //     Debug.LogError("Animator is missing in playerBehaviour script");
+        //     return;
+        // }
         if(ui == null)
         {
             Debug.LogError("UIManager script is missing from playerBehaviour script");
@@ -109,24 +109,24 @@ public class playerBehaviour : MonoBehaviour
             jumpcount++;
         }
 
-        if(horiInput > 0.1f) //this is the animation for movement 
-        {
-            animator.ResetTrigger("reset");
-            animator.ResetTrigger("left");
-            animator.SetTrigger("right");
-        }
-        else if(horiInput < -0.1f)
-        {
-            animator.ResetTrigger("reset");
-            animator.ResetTrigger("right");
-            animator.SetTrigger("left");
-        }
-        else
-        {
-            animator.ResetTrigger("right");
-            animator.ResetTrigger("left");
-            animator.SetTrigger("reset");
-        }
+        // if(horiInput > 0.1f) //this is the animation for movement   //work on progress
+        // {
+        //     animator.ResetTrigger("reset");
+        //     animator.ResetTrigger("left");
+        //     animator.SetTrigger("right");
+        // }
+        // else if(horiInput < -0.1f)
+        // {
+        //     animator.ResetTrigger("reset");
+        //     animator.ResetTrigger("right");
+        //     animator.SetTrigger("left");
+        // }
+        // else
+        // {
+        //     animator.ResetTrigger("right");
+        //     animator.ResetTrigger("left");
+        //     animator.SetTrigger("reset");
+        // }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -142,7 +142,7 @@ public class playerBehaviour : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E) && firerate <= 0 && alive)
         {
-            animator.SetTrigger("shoot");  //triggering the shooting animation
+            // animator.SetTrigger("shoot");  //triggering the shooting animation   //work on progress
             StartCoroutine(ShootingDelay(shootdelay));  
             firerate = 0.5f;
         }
