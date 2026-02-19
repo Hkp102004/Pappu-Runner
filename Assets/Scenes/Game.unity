@@ -654,7 +654,7 @@ GameObject:
   - component: {fileID: 50319422}
   - component: {fileID: 50319421}
   m_Layer: 5
-  m_Name: crystal
+  m_Name: votes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -676,8 +676,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 324.31, y: 203.3}
-  m_SizeDelta: {x: 30.2999, y: 29.9608}
+  m_AnchoredPosition: {x: 319.9, y: 199.99}
+  m_SizeDelta: {x: 71.5594, y: 127.074}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &50319421
 MonoBehaviour:
@@ -699,7 +699,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 1da8b8d7062d19e4c8c08c0cbf4ba103, type: 3}
+  m_Texture: {fileID: 2800000, guid: d68707cc0a4a3954fbc3c9a7f42f5c3c, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
