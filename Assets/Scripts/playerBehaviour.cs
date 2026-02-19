@@ -24,6 +24,7 @@ public class playerBehaviour : MonoBehaviour
     [SerializeField] private AudioSource shieldRecharge;
     [SerializeField] private AudioSource ShootingSound;
     [SerializeField] private AudioSource shieldSound;
+    private bool alive = true;
     private bool invincible;
     UIManager ui;
 
@@ -32,8 +33,9 @@ public class playerBehaviour : MonoBehaviour
        animator = GetComponent<Animator>();
        ui = GameObject.FindGameObjectWithTag("UI").GetComponent<UIManager>();
        shield.gameObject.SetActive(false);
-       shieldactive = true;
        jumpSound = GetComponent<AudioSource>(); //this will get the audio source
+       shieldactive = true;
+       alive = true;
        if(bulletPrefab==null)
         {
             Debug.LogError("Bullet prefab is missing in playerBehaviour script");
@@ -89,14 +91,17 @@ public class playerBehaviour : MonoBehaviour
         float horiInput = Input.GetAxis("Horizontal"); //key maps for fonrizontal inputs
 
         Vector3 direction = new Vector3(horiInput,0,0);
-        transform.Translate(direction * speed * Time.deltaTime);
+        if(alive) //moving right and left                                                     //working
+        {
+            transform.Translate(direction * speed * Time.deltaTime);
+        }
 
-        if(transform.position.x <= -3.5f)
+        if(transform.position.x <= -3.5f) //to bound the character to a boundry
         {
             transform.position = new Vector3(-3.5f, transform.position.y, transform.position.z);
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && jumpcount<maxjump)
+        if(Input.GetKeyDown(KeyCode.Space) && jumpcount<maxjump && alive)  //player jump logic
         {
             body.linearVelocity = new Vector3(body.linearVelocityX,0,0);
             jumpSound.Play();
