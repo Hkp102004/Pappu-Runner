@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class spawner : MonoBehaviour
 {
-    [SerializeField] private GameObject rock; //the rock prefab that should be sopwaned again and again
+    [SerializeField] private GameObject[] modi; //the rock prefab that should be sopwaned again and again
     [SerializeField] private float spawnRate = 2f; //the rate at which the bopulders should be spawned
     [SerializeField] private Transform player_position;
     [SerializeField] private bool active = true;
@@ -18,7 +18,7 @@ public class spawner : MonoBehaviour
         {
             Debug.LogError("Player Script is missing in spawner script");
         }
-        if(rock == null)
+        if(modi == null)
         {
             Debug.LogError("rock is missing in the spawner script");
             return;
@@ -37,7 +37,7 @@ public class spawner : MonoBehaviour
 
         if(spawnRate <= 0 && active)
         {
-            Instantiate(rock, new Vector3(transform.position.x,player_position.position.y + Random.Range(-0.9f,5f), transform.position.z), Quaternion.identity);
+            Instantiate(modi[Random.Range(0,2)], new Vector3(transform.position.x,player_position.position.y + Random.Range(-0.9f,5f), transform.position.z), Quaternion.identity);
             spawnRate =2f;
         }
         else
