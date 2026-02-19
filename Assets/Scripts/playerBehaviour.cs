@@ -140,7 +140,7 @@ public class playerBehaviour : MonoBehaviour
 
     public void Shoot()
     {
-        if(Input.GetKeyDown(KeyCode.E) && firerate <= 0)
+        if(Input.GetKeyDown(KeyCode.E) && firerate <= 0 && alive)
         {
             animator.SetTrigger("shoot");  //triggering the shooting animation
             StartCoroutine(ShootingDelay(shootdelay));  
@@ -163,6 +163,7 @@ public class playerBehaviour : MonoBehaviour
         {
             Destroy(gameObject);
             ui.DeadScreen();
+            alive = false;
         }
     }
 
