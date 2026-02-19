@@ -1449,11 +1449,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2218547927634307510, guid: be95971fba02e174d92d802b011f3d19, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2695.9758
+      value: -2695.94
       objectReference: {fileID: 0}
     - target: {fileID: 2218547927634307510, guid: be95971fba02e174d92d802b011f3d19, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1753.7224
+      value: -1754.35
       objectReference: {fileID: 0}
     - target: {fileID: 2218547927634307510, guid: be95971fba02e174d92d802b011f3d19, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1486,10 +1486,6 @@ PrefabInstance:
     - target: {fileID: 2218547927634307510, guid: be95971fba02e174d92d802b011f3d19, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4703419934170855877, guid: be95971fba02e174d92d802b011f3d19, type: 3}
-      propertyPath: message
-      value: Hey Cutie, welcome to your very personal game , Hope you like it ;)
       objectReference: {fileID: 0}
     - target: {fileID: 4703419934170855877, guid: be95971fba02e174d92d802b011f3d19, type: 3}
       propertyPath: uIManager
