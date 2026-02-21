@@ -193,7 +193,7 @@ public class playerBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         ShootingSound.Play();
-        Instantiate(bulletPrefabs[UnityEngine.Random.Range(0,2)], transform.position, quaternion.identity);  
+        Instantiate(bulletPrefabs[UnityEngine.Random.Range(0,2)], transform.position + new Vector3(0.5f,0,0) , quaternion.identity);  
     }
 
     IEnumerator ShieldOverload()  
