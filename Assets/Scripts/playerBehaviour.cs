@@ -14,8 +14,6 @@ public class playerBehaviour : MonoBehaviour
     [SerializeField] private float height = 400f;
     [SerializeField] private GameObject[] bulletPrefabs; //prefaab of the bullet that will be instantiated //working
     [SerializeField] private float firerate = 0.5f;
-    private int jumpcount = 0;
-    private int maxjump = 2;
     [SerializeField] private int lives = 3; //this is for lives of player
     [SerializeField] private Animator animator; //this is for the animation  
     [SerializeField] private float shootdelay = 0.3f;
@@ -25,6 +23,8 @@ public class playerBehaviour : MonoBehaviour
     [SerializeField] private AudioSource shieldRecharge;
     [SerializeField] private AudioSource ShootingSound;
     [SerializeField] private AudioSource shieldSound;
+    private int jumpcount = 0;
+    private int maxjump = 2;
     private bool alive = true;
     private bool invincible;
     UIManager ui;
