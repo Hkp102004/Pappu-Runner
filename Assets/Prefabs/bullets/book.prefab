@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 7589751800625667864}
   - component: {fileID: 2560590093710014659}
   - component: {fileID: 7952397374897619403}
+  - component: {fileID: 6385636475788692065}
   m_Layer: 0
   m_Name: book
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,3 +139,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 4.287863, y: 3.2261248}
   m_EdgeRadius: 0
+--- !u!114 &6385636475788692065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25129150757708798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c00e246fecc1b42a250761956a1395, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::bullet
+  speed: 15
+  deathzone: 18
+  player: {fileID: 0}

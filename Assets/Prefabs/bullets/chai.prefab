@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 6881074844264775145}
   - component: {fileID: 3988745312190287055}
   - component: {fileID: 4909277999380404044}
+  - component: {fileID: -5448033522686914222}
   m_Layer: 0
   m_Name: chai
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7280900817279695364}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.7, y: -0.25, z: 0}
+  m_LocalPosition: {x: 0.9, y: -0.25, z: 0}
   m_LocalScale: {x: 0.1570626, y: 0.17220208, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -138,3 +139,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.5659018, y: 6.4349623}
   m_EdgeRadius: 0
+--- !u!114 &-5448033522686914222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7280900817279695364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c00e246fecc1b42a250761956a1395, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::bullet
+  speed: 15
+  deathzone: 18
+  player: {fileID: 0}

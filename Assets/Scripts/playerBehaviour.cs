@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Runtime.CompilerServices;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,7 +12,7 @@ public class playerBehaviour : MonoBehaviour
     [SerializeField] private Rigidbody2D body;
     [SerializeField] private float speed = 10f;
     [SerializeField] private float height = 400f;
-    [SerializeField] private GameObject bulletPrefab; //prefaab of the bullet that will be instantiated
+    [SerializeField] private GameObject[] bulletPrefabs; //prefaab of the bullet that will be instantiated //working
     [SerializeField] private float firerate = 0.5f;
     private int jumpcount = 0;
     private int maxjump = 2;
@@ -36,7 +37,7 @@ public class playerBehaviour : MonoBehaviour
        jumpSound = GetComponent<AudioSource>(); //this will get the audio source
        shieldactive = true;
        alive = true;
-       if(bulletPrefab==null)
+       if(bulletPrefabs==null)
         {
             Debug.LogError("Bullet prefab is missing in playerBehaviour script");
             return;
@@ -192,7 +193,7 @@ public class playerBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         ShootingSound.Play();
-        Instantiate(bulletPrefab, transform.position + new Vector3(0.9f,0.35f,0), Quaternion.Euler(0,0,90));
+        Instantiate(bulletPrefabs[UnityEngine.Random.Range(0,2)], transform.position, quaternion.identity);  
     }
 
     IEnumerator ShieldOverload()  
