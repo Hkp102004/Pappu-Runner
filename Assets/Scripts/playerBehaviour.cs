@@ -110,7 +110,7 @@ public class playerBehaviour : MonoBehaviour
             jumpcount++;
         }
 
-        if(horiInput > 0.1f) //this is the animation for movement   //work on progress
+        if(horiInput > 0.1f) //this is the animation for movement   
         {
             animator.ResetTrigger("reset");
             animator.ResetTrigger("left");
@@ -143,7 +143,7 @@ public class playerBehaviour : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E) && firerate <= 0 && alive)
         {
-            // animator.SetTrigger("shoot");  //triggering the shooting animation   //work on progress
+            // animator.SetTrigger("shoot");  //triggering the shooting animation   
             animator.SetTrigger("throw");
             StartCoroutine(ShootingDelay(shootdelay));  
             firerate = 0.5f;
@@ -193,7 +193,7 @@ public class playerBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         ShootingSound.Play();
-        Instantiate(bulletPrefabs[UnityEngine.Random.Range(0,2)], transform.position + new Vector3(0.5f,0,0) , quaternion.identity);  
+        Instantiate(bulletPrefabs[UnityEngine.Random.Range(0,2)], transform.position + new Vector3(0.7f,0.5f,0) , quaternion.identity);  
     }
 
     IEnumerator ShieldOverload()  
