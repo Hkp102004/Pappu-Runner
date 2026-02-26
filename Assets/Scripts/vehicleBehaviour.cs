@@ -18,7 +18,7 @@ public class vehicleBehaviour : MonoBehaviour
 
     void Update()
     {
-        
+        Movement();
     }
 
     void Movement()
