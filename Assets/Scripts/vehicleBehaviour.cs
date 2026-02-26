@@ -3,6 +3,7 @@ using UnityEngine;
 public class vehicleBehaviour : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
+    [SerializeField] private float deathzone = 18f;
     Transform player_position;
     void Start()
     {
@@ -15,9 +16,19 @@ public class vehicleBehaviour : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    void Movement()
+    {
         transform.Translate(Vector3.left * speed * Time.deltaTime);
+
+        if(transform.position.x < player_position.position.x + deathzone)
+        {
+            Destroy(gameObject);
+            Debug.Log("Vehicle is out of bound and destroyed");
+        }
     }
 }
