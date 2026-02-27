@@ -10,15 +10,17 @@ public class vehicleSpawning : MonoBehaviour
     [SerializeField] private float border;
     [SerializeField] private float distance;
     [SerializeField] private bool active;
+    [SerializeField] private float activeDistance;
     void Start()
     {
-        
+        active = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         Location();
+        Check();
     }
 
     void Location()
@@ -29,6 +31,18 @@ public class vehicleSpawning : MonoBehaviour
         if(transform.position.x >= border)
         {
             transform.position = new Vector3(border,transform.position.y,transform.position.z); //logic to stop the spawner at border
+        }
+    }
+
+    void Check()
+    {
+        if(player.position.x - activeDistance >= transform.position.x)
+        {
+            active = false;
+        }
+        else
+        {
+            active = true;
         }
     }
 }

@@ -5984,6 +5984,8 @@ MonoBehaviour:
   bottom: 0
   border: 46.5
   distance: 15
+  active: 0
+  activeDistance: 15
 --- !u!4 &1820630149
 Transform:
   m_ObjectHideFlags: 0
