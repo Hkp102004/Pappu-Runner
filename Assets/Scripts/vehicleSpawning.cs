@@ -9,6 +9,7 @@ public class vehicleSpawning : MonoBehaviour
     [SerializeField] private float bottom;
     [SerializeField] private float border;
     [SerializeField] private float distance;
+    [SerializeField] private bool active;
     void Start()
     {
         
@@ -23,6 +24,11 @@ public class vehicleSpawning : MonoBehaviour
     void Location()
     {
         
-        transform.position = new Vector3(player.position.x + distance, transform.position.y, transform.position.z);
+        transform.position = new Vector3(player.position.x + distance, transform.position.y, transform.position.z);  // to make spawnerr move according to player position
+
+        if(transform.position.x >= border)
+        {
+            transform.position = new Vector3(border,transform.position.y,transform.position.z); //logic to stop the spawner at border
+        }
     }
 }
