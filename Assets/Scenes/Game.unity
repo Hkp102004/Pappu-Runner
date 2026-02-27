@@ -364,6 +364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 226147385}
   - component: {fileID: 226147384}
+  - component: {fileID: 226147386}
   m_Layer: 0
   m_Name: creame car
   m_TagString: Untagged
@@ -445,6 +446,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 20421004}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &226147386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226147383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06aab3a7ec0d522429ab018162104160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::vehicleBehaviour
+  speed: 5
+  deathzone: 18
 --- !u!1 &235589311
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,6 +1055,7 @@ GameObject:
   m_Component:
   - component: {fileID: 469390178}
   - component: {fileID: 469390177}
+  - component: {fileID: 469390179}
   m_Layer: 0
   m_Name: truck2
   m_TagString: Untagged
@@ -1121,6 +1137,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 20421004}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &469390179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469390176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06aab3a7ec0d522429ab018162104160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::vehicleBehaviour
+  speed: 5
+  deathzone: 18
 --- !u!1 &505404813
 GameObject:
   m_ObjectHideFlags: 0
@@ -1476,6 +1506,7 @@ GameObject:
   m_Component:
   - component: {fileID: 725171424}
   - component: {fileID: 725171423}
+  - component: {fileID: 725171425}
   m_Layer: 0
   m_Name: red car
   m_TagString: Untagged
@@ -1557,6 +1588,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 20421004}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &725171425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725171422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06aab3a7ec0d522429ab018162104160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::vehicleBehaviour
+  speed: 5
+  deathzone: 18
 --- !u!1 &726167623
 GameObject:
   m_ObjectHideFlags: 0
@@ -1985,6 +2030,7 @@ GameObject:
   m_Component:
   - component: {fileID: 856167677}
   - component: {fileID: 856167676}
+  - component: {fileID: 856167678}
   m_Layer: 0
   m_Name: yellow car
   m_TagString: Untagged
@@ -2066,6 +2112,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 20421004}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &856167678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856167675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06aab3a7ec0d522429ab018162104160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::vehicleBehaviour
+  speed: 5
+  deathzone: 18
 --- !u!1 &856563843
 GameObject:
   m_ObjectHideFlags: 0
@@ -5269,6 +5329,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1434083810}
   - component: {fileID: 1434083809}
+  - component: {fileID: 1434083811}
   m_Layer: 0
   m_Name: truck 3
   m_TagString: Untagged
@@ -5350,6 +5411,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 20421004}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1434083811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434083808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06aab3a7ec0d522429ab018162104160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::vehicleBehaviour
+  speed: 5
+  deathzone: 18
 --- !u!1 &1442395641
 GameObject:
   m_ObjectHideFlags: 0
@@ -5893,6 +5968,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1705725138}
   - component: {fileID: 1705725137}
+  - component: {fileID: 1705725139}
   m_Layer: 0
   m_Name: green car
   m_TagString: Untagged
@@ -5974,6 +6050,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 20421004}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1705725139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705725136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06aab3a7ec0d522429ab018162104160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::vehicleBehaviour
+  speed: 5
+  deathzone: 18
 --- !u!1 &1738103300
 GameObject:
   m_ObjectHideFlags: 0
@@ -7326,6 +7416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   speed: 5
+  deathzone: 18
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
