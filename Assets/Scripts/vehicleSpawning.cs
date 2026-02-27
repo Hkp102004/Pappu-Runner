@@ -1,3 +1,5 @@
+using System;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,6 +12,8 @@ public class vehicleSpawning : MonoBehaviour
     [SerializeField] private float border;
     [SerializeField] private float distance;
     [SerializeField] private bool active;
+    [SerializeField] private float SpawnRate=2;
+    [SerializeField] private float time;
     [SerializeField] private float activeDistance;
     void Start()
     {
@@ -19,8 +23,12 @@ public class vehicleSpawning : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Location();
-        Check();
+        Location(); //to track the position and move according to the player
+        Check(); //function to check player position to start and stop spawner
+        if(active)
+        {
+            Spawn();
+        }
     }
 
     void Location()
@@ -43,6 +51,21 @@ public class vehicleSpawning : MonoBehaviour
         else
         {
             active = true;
+        }
+    }
+
+    void Spawn()
+    {
+        //2.3
+        //0.5
+        if(time >= SpawnRate)
+        {
+            Instantiate(vehicles[UnityEngine.Random.Range(0,6)], new Vector3(transform.position.x, UnityEngine.Random.Range(top,bottom), transform.position.z), Quaternion.identity);
+            time=0;
+        }
+        else
+        {
+            time+=Time.deltaTime;
         }
     }
 }
