@@ -25,7 +25,7 @@ public class vehicleBehaviour : MonoBehaviour
     {
         transform.Translate(Vector3.left * speed * Time.deltaTime);
 
-        if(transform.position.x < player_position.position.x + deathzone)
+        if(transform.position.x < player_position.position.x - deathzone)
         {
             Destroy(gameObject);
             Debug.Log("Vehicle is out of bound and destroyed");
