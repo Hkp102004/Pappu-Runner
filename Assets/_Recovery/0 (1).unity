@@ -206,7 +206,7 @@ MonoBehaviour:
   - {fileID: 8968345478104828228, guid: 11f2f83e679e6924dbbb4f330eb0ea16, type: 3}
   spawnRate: 2
   player_position: {fileID: 1795047589}
-  active: 0
+  active: 1
 --- !u!1 &50319419
 GameObject:
   m_ObjectHideFlags: 0
@@ -5982,8 +5982,7 @@ MonoBehaviour:
   player: {fileID: 1795047589}
   top: 0
   bottom: 0
-  border: 46.5
-  distance: 15
+  border: 48
 --- !u!4 &1820630149
 Transform:
   m_ObjectHideFlags: 0
@@ -5993,7 +5992,7 @@ Transform:
   m_GameObject: {fileID: 1820630147}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.24, y: -4.55, z: 0}
+  m_LocalPosition: {x: 1.61, y: -4.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
