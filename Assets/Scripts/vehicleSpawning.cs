@@ -70,9 +70,4 @@ public class vehicleSpawning : MonoBehaviour
             time+=Time.deltaTime;
         }
     }
-
-    // public void GoingLeft()
-    // {
-    //     transform.position = new Vector3(player.position.x + MaxDistance, transform.position.y, transform.position.z);
-    // }
 }

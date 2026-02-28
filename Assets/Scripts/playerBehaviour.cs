@@ -27,14 +27,12 @@ public class playerBehaviour : MonoBehaviour
     private int maxjump = 2;
     private bool alive = true;
     private bool invincible;
-    vehicleSpawning vehicleScript;
     UIManager ui;
 
     void Start()
     {
        animator = GetComponent<Animator>();
        ui = GameObject.FindGameObjectWithTag("UI").GetComponent<UIManager>();
-       vehicleScript = GameObject.FindGameObjectWithTag("V Spawner").GetComponent<vehicleSpawning>();
        shield.gameObject.SetActive(false);
        jumpSound = GetComponent<AudioSource>(); //this will get the audio source
        shieldactive = true;
@@ -79,11 +77,6 @@ public class playerBehaviour : MonoBehaviour
             Debug.LogError("Shield sound is missing in playerNehaviour script");
             return;
         }
-        if(vehicleScript == null)
-        {
-            Debug.LogError("vehicle spawner script is missing from the player Script");
-            return;
-        }
     }
     // Update is called once per frame
     void Update()
@@ -122,27 +115,23 @@ public class playerBehaviour : MonoBehaviour
             animator.ResetTrigger("reset");
             animator.ResetTrigger("left");
             animator.SetTrigger("right");
-            // vehicleScript.Location();
         }
         else if(horiInput < -0.1f)
         {
             animator.ResetTrigger("reset");
             animator.ResetTrigger("right");
             animator.SetTrigger("left");
-            // vehicleScript.GoingLeft();
         }
         else
         {
             animator.ResetTrigger("right");
             animator.ResetTrigger("left");
             animator.SetTrigger("reset");
-            // vehicleScript.Location();
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log(collision.gameObject.tag);
         if(collision.gameObject.tag == "Ground")
         {
             jumpcount=0;
