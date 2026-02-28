@@ -24,7 +24,7 @@ public class vehicleSpawning : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Location(); //to track the position and move according to the player
+        // Location(); //to track the position and move according to the player
         Check(); //function to check player position to start and stop spawner
         if(active)
         {
@@ -32,7 +32,7 @@ public class vehicleSpawning : MonoBehaviour
         }
     }
 
-    void Location()
+    public void Location()
     {
         
         transform.position = new Vector3(player.position.x + distance, transform.position.y, transform.position.z);  // to make spawnerr move according to player position
@@ -68,5 +68,10 @@ public class vehicleSpawning : MonoBehaviour
         {
             time+=Time.deltaTime;
         }
+    }
+
+    public void GoingLeft()
+    {
+        transform.position = new Vector3(player.position.x + MaxDistance, transform.position.y, transform.position.z);
     }
 }
