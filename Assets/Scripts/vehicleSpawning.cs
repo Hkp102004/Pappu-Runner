@@ -1,6 +1,7 @@
 using System;
 using Unity.Mathematics;
 using Unity.VisualScripting;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class vehicleSpawning : MonoBehaviour
@@ -24,7 +25,7 @@ public class vehicleSpawning : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Location(); //to track the position and move according to the player
+        Location(); //to track the position and move according to the player
         Check(); //function to check player position to start and stop spawner
         if(active)
         {
@@ -32,7 +33,7 @@ public class vehicleSpawning : MonoBehaviour
         }
     }
 
-    public void Location()
+    void Location()
     {
         
         transform.position = new Vector3(player.position.x + distance, transform.position.y, transform.position.z);  // to make spawnerr move according to player position
@@ -57,11 +58,11 @@ public class vehicleSpawning : MonoBehaviour
 
     void Spawn()
     {   
-        //1.10
-        //1.11
         if(time >= SpawnRate)
         {
-            Instantiate(vehicles[UnityEngine.Random.Range(0,6)], new Vector3(transform.position.x, UnityEngine.Random.Range(top,bottom), transform.position.z), Quaternion.identity);
+            float[] positions = {top,bottom};
+            float value = positions[UnityEngine.Random.Range(0,2)];
+            Instantiate(vehicles[UnityEngine.Random.Range(0,6)], new Vector3(transform.position.x, value, transform.position.z), Quaternion.identity);
             time=0;
         }
         else
@@ -70,8 +71,8 @@ public class vehicleSpawning : MonoBehaviour
         }
     }
 
-    public void GoingLeft()
-    {
-        transform.position = new Vector3(player.position.x + MaxDistance, transform.position.y, transform.position.z);
-    }
+    // public void GoingLeft()
+    // {
+    //     transform.position = new Vector3(player.position.x + MaxDistance, transform.position.y, transform.position.z);
+    // }
 }

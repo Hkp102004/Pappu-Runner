@@ -206,7 +206,7 @@ MonoBehaviour:
   - {fileID: 8968345478104828228, guid: 11f2f83e679e6924dbbb4f330eb0ea16, type: 3}
   spawnRate: 2
   player_position: {fileID: 1795047589}
-  active: 0
+  active: 1
 --- !u!1 &50319419
 GameObject:
   m_ObjectHideFlags: 0
@@ -5987,10 +5987,10 @@ MonoBehaviour:
   - {fileID: 1679178953725903038, guid: adada5751dbf3b8468f6031127888aaf, type: 3}
   - {fileID: 2495301430888297685, guid: e9468351bb2836c4da10ca67213268e1, type: 3}
   player: {fileID: 1795047589}
-  top: -2.7
-  bottom: -3.7
+  top: -2.95
+  bottom: -4.17
   border: 46.5
-  distance: 15
+  distance: 18
   active: 0
   SpawnRate: 2
   time: 0

@@ -122,21 +122,21 @@ public class playerBehaviour : MonoBehaviour
             animator.ResetTrigger("reset");
             animator.ResetTrigger("left");
             animator.SetTrigger("right");
-            vehicleScript.Location();
+            // vehicleScript.Location();
         }
         else if(horiInput < -0.1f)
         {
             animator.ResetTrigger("reset");
             animator.ResetTrigger("right");
             animator.SetTrigger("left");
-            vehicleScript.GoingLeft();
+            // vehicleScript.GoingLeft();
         }
         else
         {
             animator.ResetTrigger("right");
             animator.ResetTrigger("left");
             animator.SetTrigger("reset");
-            vehicleScript.Location();
+            // vehicleScript.Location();
         }
     }
 
