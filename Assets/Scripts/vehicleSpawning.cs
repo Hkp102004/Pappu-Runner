@@ -1,4 +1,6 @@
 using System;
+using System.Security.Principal;
+using JetBrains.Annotations;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor.ShaderGraph.Internal;
@@ -16,7 +18,6 @@ public class vehicleSpawning : MonoBehaviour
     [SerializeField] private float SpawnRate=2;
     [SerializeField] private float time;
     [SerializeField] private float activeDistance;
-    [SerializeField] private float MaxDistance;
     void Start()
     {
         active = true;

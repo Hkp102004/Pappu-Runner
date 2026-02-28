@@ -206,7 +206,7 @@ MonoBehaviour:
   - {fileID: 8968345478104828228, guid: 11f2f83e679e6924dbbb4f330eb0ea16, type: 3}
   spawnRate: 2
   player_position: {fileID: 1795047589}
-  active: 1
+  active: 0
 --- !u!1 &50319419
 GameObject:
   m_ObjectHideFlags: 0
@@ -5995,7 +5995,8 @@ MonoBehaviour:
   SpawnRate: 2
   time: 0
   activeDistance: 15
-  MaxDistance: 25
+  space: 10
+  vehiclePosition: {fileID: 0}
 --- !u!4 &1820630149
 Transform:
   m_ObjectHideFlags: 0

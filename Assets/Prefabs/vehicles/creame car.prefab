@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4603416415581331521}
   m_Layer: 0
   m_Name: creame car
-  m_TagString: Untagged
+  m_TagString: vehicles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
