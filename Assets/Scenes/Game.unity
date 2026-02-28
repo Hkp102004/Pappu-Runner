@@ -6004,7 +6004,7 @@ Transform:
   m_GameObject: {fileID: 1820630147}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.24, y: -4.72, z: 0}
+  m_LocalPosition: {x: 5.24, y: -5.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6937,6 +6937,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: yellow car
       objectReference: {fileID: 0}
+    - target: {fileID: 2495301430888297685, guid: e9468351bb2836c4da10ca67213268e1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7069,12 +7073,20 @@ PrefabInstance:
       value: blue car
       objectReference: {fileID: 0}
     - target: {fileID: 5808798537063117473, guid: 3923f6ac32dddad47a99e199547f7d0b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5808798537063117473, guid: 3923f6ac32dddad47a99e199547f7d0b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.823643
+      objectReference: {fileID: 0}
+    - target: {fileID: 5808798537063117473, guid: 3923f6ac32dddad47a99e199547f7d0b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -38.574505
+      value: -40.0445
       objectReference: {fileID: 0}
     - target: {fileID: 5808798537063117473, guid: 3923f6ac32dddad47a99e199547f7d0b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.3685505
+      value: 2.4075
       objectReference: {fileID: 0}
     - target: {fileID: 5808798537063117473, guid: 3923f6ac32dddad47a99e199547f7d0b, type: 3}
       propertyPath: m_LocalPosition.z

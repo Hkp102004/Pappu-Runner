@@ -15,6 +15,7 @@ public class vehicleSpawning : MonoBehaviour
     [SerializeField] private float SpawnRate=2;
     [SerializeField] private float time;
     [SerializeField] private float activeDistance;
+    [SerializeField] private float MaxDistance;
     void Start()
     {
         active = true;
@@ -55,9 +56,9 @@ public class vehicleSpawning : MonoBehaviour
     }
 
     void Spawn()
-    {
-        //2.3
-        //0.5
+    {   
+        //1.10
+        //1.11
         if(time >= SpawnRate)
         {
             Instantiate(vehicles[UnityEngine.Random.Range(0,6)], new Vector3(transform.position.x, UnityEngine.Random.Range(top,bottom), transform.position.z), Quaternion.identity);
