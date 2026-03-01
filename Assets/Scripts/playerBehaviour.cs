@@ -181,8 +181,9 @@ public class playerBehaviour : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Q) && shieldactive)
         {
-            shield.gameObject.SetActive(true);
-            shieldSound.Play();
+            // shield.gameObject.SetActive(true);
+            // shieldSound.Play();
+            animator.SetTrigger("shield");
             invincible = true;
             StartCoroutine(ShieldOverload());
             StartCoroutine(ShieldCooldown());
