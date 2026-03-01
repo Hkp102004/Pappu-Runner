@@ -18,7 +18,6 @@ public class playerBehaviour : MonoBehaviour
     [SerializeField] private Animator animator; //this is for the animation  
     [SerializeField] private float shootdelay = 0.3f;
     [SerializeField] private bool shieldactive = false;
-    [SerializeField] private GameObject shield;
     [SerializeField] private AudioSource jumpSound;
     [SerializeField] private AudioSource shieldRecharge;
     [SerializeField] private AudioSource ShootingSound;
@@ -34,7 +33,6 @@ public class playerBehaviour : MonoBehaviour
     {
        animator = GetComponent<Animator>();
        ui = GameObject.FindGameObjectWithTag("UI").GetComponent<UIManager>();
-       shield.gameObject.SetActive(false);
        jumpSound = GetComponent<AudioSource>(); //this will get the audio source
        Vspawner = GameObject.FindGameObjectWithTag("V Spawner").GetComponent<vehicleSpawning>();
        shieldactive = true;
@@ -57,11 +55,6 @@ public class playerBehaviour : MonoBehaviour
         if(ui == null)
         {
             Debug.LogError("UIManager script is missing from playerBehaviour script");
-            return;
-        }
-        if(shield == null)
-        {
-            Debug.LogError("Shield is missing in playerBehaviour script");
             return;
         }
         if(shieldRecharge == null)
@@ -181,8 +174,6 @@ public class playerBehaviour : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Q) && shieldactive)
         {
-            // shield.gameObject.SetActive(true);
-            // shieldSound.Play();
             animator.SetTrigger("shield");
             invincible = true;
             StartCoroutine(ShieldOverload());
@@ -207,15 +198,14 @@ public class playerBehaviour : MonoBehaviour
 
     IEnumerator ShieldOverload()  
     {
-        yield return new WaitForSeconds(4f);
-        shield.gameObject.SetActive(false);
+        yield return new WaitForSeconds(1f);
         shieldactive = false;
         invincible = false;
     }
     
     IEnumerator ShieldCooldown()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(4f);
         shieldactive = true;
         shieldRecharge.Play();
     }
