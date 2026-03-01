@@ -15,7 +15,6 @@ public class vehicleSpawning : MonoBehaviour
     [SerializeField] private float border;
     [SerializeField] private float distance;
     [SerializeField] private bool active;
-    // [SerializeField] private float SpawnRate=2;
     [SerializeField] private float time;
     [SerializeField] private float activeDistance;
     void Start()
