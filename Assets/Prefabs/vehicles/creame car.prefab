@@ -104,5 +104,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06aab3a7ec0d522429ab018162104160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::vehicleBehaviour
-  speed: 5
+  speed: 10
   deathzone: 18

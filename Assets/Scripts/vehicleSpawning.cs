@@ -15,7 +15,7 @@ public class vehicleSpawning : MonoBehaviour
     [SerializeField] private float border;
     [SerializeField] private float distance;
     [SerializeField] private bool active;
-    [SerializeField] private float SpawnRate=2;
+    // [SerializeField] private float SpawnRate=2;
     [SerializeField] private float time;
     [SerializeField] private float activeDistance;
     void Start()
@@ -28,10 +28,6 @@ public class vehicleSpawning : MonoBehaviour
     {
         Location(); //to track the position and move according to the player
         Check(); //function to check player position to start and stop spawner
-        if(active)
-        {
-            Spawn();
-        }
     }
 
     void Location()
@@ -57,9 +53,9 @@ public class vehicleSpawning : MonoBehaviour
         }
     }
 
-    void Spawn()
+    public void Spawn(float SpawnRate)
     {   
-        if(time >= SpawnRate)
+        if(time >= SpawnRate && active)
         {
             float[] positions = {top,bottom};
             float value = positions[UnityEngine.Random.Range(0,2)];

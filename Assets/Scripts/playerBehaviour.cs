@@ -28,6 +28,7 @@ public class playerBehaviour : MonoBehaviour
     private bool alive = true;
     private bool invincible;
     UIManager ui;
+    vehicleSpawning Vspawner;
 
     void Start()
     {
@@ -35,6 +36,7 @@ public class playerBehaviour : MonoBehaviour
        ui = GameObject.FindGameObjectWithTag("UI").GetComponent<UIManager>();
        shield.gameObject.SetActive(false);
        jumpSound = GetComponent<AudioSource>(); //this will get the audio source
+       Vspawner = GameObject.FindGameObjectWithTag("V Spawner").GetComponent<vehicleSpawning>();
        shieldactive = true;
        alive = true;
        if(bulletPrefabs==null)
@@ -77,6 +79,10 @@ public class playerBehaviour : MonoBehaviour
             Debug.LogError("Shield sound is missing in playerNehaviour script");
             return;
         }
+        if(Vspawner == null)
+        {
+            Debug.LogError("The vehhicle spawner is not connected buddy , do something");
+        }
     }
     // Update is called once per frame
     void Update()
@@ -115,18 +121,21 @@ public class playerBehaviour : MonoBehaviour
             animator.ResetTrigger("reset");
             animator.ResetTrigger("left");
             animator.SetTrigger("right");
+            Vspawner.Spawn(1.2f);
         }
         else if(horiInput < -0.1f)
         {
             animator.ResetTrigger("reset");
             animator.ResetTrigger("right");
             animator.SetTrigger("left");
+            Vspawner.Spawn(2);
         }
         else
         {
             animator.ResetTrigger("right");
             animator.ResetTrigger("left");
             animator.SetTrigger("reset");
+            Vspawner.Spawn(1.2f);
         }
     }
 
