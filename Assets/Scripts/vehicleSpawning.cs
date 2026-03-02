@@ -12,8 +12,8 @@ public class vehicleSpawning : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private float top;
     [SerializeField] private float bottom;
-    [SerializeField] private float border;
-    [SerializeField] private float distance;
+    // [SerializeField] private float border;
+    // [SerializeField] private float distance;
     [SerializeField] private float spawnRate = 1.3f;
     [SerializeField] private bool active;
     [SerializeField] private float time;
@@ -27,7 +27,9 @@ public class vehicleSpawning : MonoBehaviour
     void Update()
     {
         // Location(); //to track the position and move according to the player
-        Check(); //function to check player position to start and stop spawner
+        // Check(); //function to check player position to start and stop spawner
+        // Activation();
+        Spawn();
     }
 
     // void Location()
@@ -51,6 +53,11 @@ public class vehicleSpawning : MonoBehaviour
         {
             active = true;
         }
+    }
+    void Activation()
+    {
+        float distance = Math.Abs(player.position.x - transform.position.x);
+        active = distance <= activeDistance;
     }
 
     public void Spawn()
