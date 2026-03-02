@@ -18,6 +18,7 @@ public class vehicleSpawning : MonoBehaviour
     [SerializeField] private float time;
     [SerializeField] private float startDist = 20;
     [SerializeField] private float pastDist = 15;
+    [SerializeField] private GameObject container;
     void Start()
     {
         active = true;
@@ -48,7 +49,8 @@ public class vehicleSpawning : MonoBehaviour
         {
             float[] positions = {top,bottom};
             float value = positions[UnityEngine.Random.Range(0,2)];
-            Instantiate(vehicles[UnityEngine.Random.Range(0,6)], new Vector3(transform.position.x, value, transform.position.z), Quaternion.identity);
+            GameObject newVehicle = Instantiate(vehicles[UnityEngine.Random.Range(0,6)], new Vector3(transform.position.x, value, transform.position.z), Quaternion.identity);
+            newVehicle.transform.parent = container.transform; // to keep the vehicle in a container
             time=0;
         }
         else
