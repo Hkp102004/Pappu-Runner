@@ -5990,7 +5990,9 @@ MonoBehaviour:
   spawnRate: 1.3
   active: 0
   time: 0
-  activeDistance: 20
+  activeDistance: 0
+  startDist: 60
+  pastDist: 15
 --- !u!4 &1820630149
 Transform:
   m_ObjectHideFlags: 0
@@ -6000,7 +6002,7 @@ Transform:
   m_GameObject: {fileID: 1820630147}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19, y: -6, z: 0}
+  m_LocalPosition: {x: 53.4, y: -6.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6065,6 +6067,8 @@ MonoBehaviour:
   active: 0
   time: 0
   activeDistance: 15
+  startDist: 20
+  pastDist: 15
 --- !u!1 &1891161149
 GameObject:
   m_ObjectHideFlags: 0

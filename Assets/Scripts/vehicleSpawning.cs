@@ -5,6 +5,7 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class vehicleSpawning : MonoBehaviour
 {
@@ -12,12 +13,11 @@ public class vehicleSpawning : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private float top;
     [SerializeField] private float bottom;
-    // [SerializeField] private float border;
-    // [SerializeField] private float distance;
     [SerializeField] private float spawnRate = 1.3f;
     [SerializeField] private bool active;
     [SerializeField] private float time;
-    [SerializeField] private float activeDistance;
+    [SerializeField] private float startDist = 20;
+    [SerializeField] private float pastDist = 15;
     void Start()
     {
         active = true;
@@ -26,40 +26,22 @@ public class vehicleSpawning : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Location(); //to track the position and move according to the player
-        // Check(); //function to check player position to start and stop spawner
-        // Activation();
-        Spawn();
+        Condition(); //check the condition to spawn the vehicle
+        Spawn(); //function to spawn the vehicle
     }
 
-    // void Location()
-    // {
-        
-    //     transform.position = new Vector3(player.position.x + distance, transform.position.y, transform.position.z);  // to make spawnerr move according to player position
 
-    //     if(transform.position.x >= border)
-    //     {
-    //         transform.position = new Vector3(border,transform.position.y,transform.position.z); //logic to stop the spawner at border
-    //     }
-    // }
-
-    void Check()
+    void Condition()
     {
-        if(player.position.x - activeDistance >= transform.position.x)
-        {
-            active = false;
-        }
-        else
+        if(player.position.x < transform.position.x + pastDist && player.position.x > transform.position.x - startDist)
         {
             active = true;
         }
+        else
+        {
+            active = false;
+        }
     }
-    void Activation()
-    {
-        float distance = Math.Abs(player.position.x - transform.position.x);
-        active = distance <= activeDistance;
-    }
-
     public void Spawn()
     {   
         if(time >= spawnRate && active)
