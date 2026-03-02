@@ -14,6 +14,7 @@ public class vehicleSpawning : MonoBehaviour
     [SerializeField] private float bottom;
     [SerializeField] private float border;
     [SerializeField] private float distance;
+    [SerializeField] private float spawnRate = 1.3f;
     [SerializeField] private bool active;
     [SerializeField] private float time;
     [SerializeField] private float activeDistance;
@@ -25,20 +26,20 @@ public class vehicleSpawning : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Location(); //to track the position and move according to the player
+        // Location(); //to track the position and move according to the player
         Check(); //function to check player position to start and stop spawner
     }
 
-    void Location()
-    {
+    // void Location()
+    // {
         
-        transform.position = new Vector3(player.position.x + distance, transform.position.y, transform.position.z);  // to make spawnerr move according to player position
+    //     transform.position = new Vector3(player.position.x + distance, transform.position.y, transform.position.z);  // to make spawnerr move according to player position
 
-        if(transform.position.x >= border)
-        {
-            transform.position = new Vector3(border,transform.position.y,transform.position.z); //logic to stop the spawner at border
-        }
-    }
+    //     if(transform.position.x >= border)
+    //     {
+    //         transform.position = new Vector3(border,transform.position.y,transform.position.z); //logic to stop the spawner at border
+    //     }
+    // }
 
     void Check()
     {
@@ -52,9 +53,9 @@ public class vehicleSpawning : MonoBehaviour
         }
     }
 
-    public void Spawn(float SpawnRate)
+    public void Spawn()
     {   
-        if(time >= SpawnRate && active)
+        if(time >= spawnRate && active)
         {
             float[] positions = {top,bottom};
             float value = positions[UnityEngine.Random.Range(0,2)];
