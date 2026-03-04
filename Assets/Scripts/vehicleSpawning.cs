@@ -18,7 +18,7 @@ public class vehicleSpawning : MonoBehaviour
     [SerializeField] private float time;
     [SerializeField] private float startDist = 20;
     [SerializeField] private float pastDist = 15;
-    [SerializeField] private float vehicleMax = 20;
+    [SerializeField] private float vehicleMax = 20; //put the global position not the local because this is working on global position
     [SerializeField] private GameObject container;
     void Start()
     {
