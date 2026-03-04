@@ -18,10 +18,21 @@ public class vehicleSpawning : MonoBehaviour
     [SerializeField] private float time;
     [SerializeField] private float startDist = 20;
     [SerializeField] private float pastDist = 15;
+    // [SerializeField] float endzone = 10;
+    [SerializeField] private float vehicleMax = 20;
     [SerializeField] private GameObject container;
+    // vehicleBehaviour vehicle;
     void Start()
     {
+        // vehicle = GameObject.FindGameObjectWithTags("vehicles").GetComponent<vehicleBehaviour>();\
+        // vehicle = GameObject.FindGameObjectsWithTag("vehicles").
         active = true;
+
+        // if(vehicle == null)
+        // {
+        //     Debug.LogError("the vehicle script is missing from Vehicle spawner script");
+        //     return;
+        // }
     }
 
     // Update is called once per frame
@@ -51,6 +62,8 @@ public class vehicleSpawning : MonoBehaviour
             float value = positions[UnityEngine.Random.Range(0,2)];
             GameObject newVehicle = Instantiate(vehicles[UnityEngine.Random.Range(0,6)], new Vector3(transform.position.x, value, transform.position.z), Quaternion.identity);
             newVehicle.transform.parent = container.transform; // to keep the vehicle in a container
+            vehicleBehaviour vehicleB = newVehicle.GetComponent<vehicleBehaviour>();
+            vehicleB.endzone = vehicleMax;
             time=0;
         }
         else

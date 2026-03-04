@@ -4,6 +4,7 @@ public class vehicleBehaviour : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
     [SerializeField] private float deathzone = 18f;
+    [SerializeField] public float endzone = 40;
     Transform player_position;
     void Start()
     {
@@ -18,14 +19,14 @@ public class vehicleBehaviour : MonoBehaviour
 
     void Update()
     {
-        Movement();
+        Movement();   //working on this
     }
 
-    void Movement()
+    public void Movement()
     {
         transform.Translate(Vector3.left * speed * Time.deltaTime);
 
-        if(transform.position.x < player_position.position.x - deathzone)
+        if(transform.position.x < player_position.position.x - deathzone || transform.position.x < endzone)
         {
             Destroy(gameObject);
             Debug.Log("Vehicle is out of bound and destroyed");
