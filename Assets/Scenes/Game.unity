@@ -1328,6 +1328,7 @@ MonoBehaviour:
   - {fileID: 6602592315541724402, guid: 88accd441a668a941be4e8cab55f1cff, type: 3}
   - {fileID: 2471271711908508940, guid: d011e43a55f84aa4faf5afac114fdea8, type: 3}
   - {fileID: 2495301430888297685, guid: e9468351bb2836c4da10ca67213268e1, type: 3}
+  maxVehicle: 5
   player: {fileID: 1795047589}
   top: 9.06
   bottom: 7.5
@@ -1669,6 +1670,7 @@ MonoBehaviour:
   - {fileID: 9198974615481910911, guid: 7ebd57ba49f8583449aabcff73717715, type: 3}
   - {fileID: 1679178953725903038, guid: adada5751dbf3b8468f6031127888aaf, type: 3}
   - {fileID: 2495301430888297685, guid: e9468351bb2836c4da10ca67213268e1, type: 3}
+  maxVehicle: 7
   player: {fileID: 1795047589}
   top: -0.14
   bottom: -2.02
@@ -5769,6 +5771,7 @@ MonoBehaviour:
   - {fileID: 9198974615481910911, guid: 7ebd57ba49f8583449aabcff73717715, type: 3}
   - {fileID: 1679178953725903038, guid: adada5751dbf3b8468f6031127888aaf, type: 3}
   - {fileID: 2495301430888297685, guid: e9468351bb2836c4da10ca67213268e1, type: 3}
+  maxVehicle: 7
   player: {fileID: 1795047589}
   top: 2.59
   bottom: 0.57
@@ -6297,6 +6300,7 @@ MonoBehaviour:
   - {fileID: 9198974615481910911, guid: 7ebd57ba49f8583449aabcff73717715, type: 3}
   - {fileID: 1679178953725903038, guid: adada5751dbf3b8468f6031127888aaf, type: 3}
   - {fileID: 2495301430888297685, guid: e9468351bb2836c4da10ca67213268e1, type: 3}
+  maxVehicle: 7
   player: {fileID: 1795047589}
   top: -2.95
   bottom: -4.17
