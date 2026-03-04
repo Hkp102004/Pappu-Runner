@@ -4,7 +4,7 @@ public class vehicleBehaviour : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
     [SerializeField] private float deathzone = 18f;
-    [SerializeField] public float endzone = 40;
+    public float endzone = 40;
     Transform player_position;
     void Start()
     {
