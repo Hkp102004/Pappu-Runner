@@ -30,7 +30,6 @@ public class vehicleBehaviour : MonoBehaviour
         if(transform.position.x < player_position.position.x - deathzone || transform.position.x < endzone)
         {
             Destroy(gameObject);
-            Debug.Log("Vehicle is out of bound and destroyed");
         }
     }
 }

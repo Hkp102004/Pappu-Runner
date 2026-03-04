@@ -733,7 +733,7 @@ Transform:
   m_GameObject: {fileID: 394481131}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 69.52, y: 1.13, z: 0}
+  m_LocalPosition: {x: 98.64, y: 0.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1555,6 +1555,69 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &817920984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 817920985}
+  - component: {fileID: 817920986}
+  m_Layer: 0
+  m_Name: VehicleSpawner (2)
+  m_TagString: V Spawner
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &817920985
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817920984}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 163.87, y: -3.31, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2134466125}
+  m_Father: {fileID: 1764484647}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &817920986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817920984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e01f92f60f58ef24891e746b9d457a5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  vehicles:
+  - {fileID: 5417439394470629921, guid: 3923f6ac32dddad47a99e199547f7d0b, type: 3}
+  - {fileID: 8814753091529759826, guid: f0bddfa27b7472448a88579263eae5f3, type: 3}
+  - {fileID: 6602592315541724402, guid: 88accd441a668a941be4e8cab55f1cff, type: 3}
+  - {fileID: 2471271711908508940, guid: d011e43a55f84aa4faf5afac114fdea8, type: 3}
+  - {fileID: 9198974615481910911, guid: 7ebd57ba49f8583449aabcff73717715, type: 3}
+  - {fileID: 1679178953725903038, guid: adada5751dbf3b8468f6031127888aaf, type: 3}
+  - {fileID: 2495301430888297685, guid: e9468351bb2836c4da10ca67213268e1, type: 3}
+  player: {fileID: 1795047589}
+  top: -0.14
+  bottom: -2.02
+  spawnRate: 1.2
+  active: 0
+  time: 0
+  startDist: 65
+  pastDist: 5
+  vehicleMax: 117
+  container: {fileID: 2134466124}
 --- !u!1 &820695193
 GameObject:
   m_ObjectHideFlags: 0
@@ -5655,6 +5718,7 @@ Transform:
   m_Children:
   - {fileID: 26971890}
   - {fileID: 1820630149}
+  - {fileID: 817920985}
   - {fileID: 1738461391}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6844,6 +6908,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2218547927634307510, guid: be95971fba02e174d92d802b011f3d19, type: 3}
   m_PrefabInstance: {fileID: 2000163725}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2134466124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2134466125}
+  m_Layer: 0
+  m_Name: VehicleContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2134466125
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134466124}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 817920985}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
