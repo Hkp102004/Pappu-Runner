@@ -10,6 +10,7 @@ using UnityEngine.Rendering;
 public class vehicleSpawning : MonoBehaviour
 {
     [SerializeField] private GameObject[] vehicles;
+    [SerializeField] private int maxVehicle=7;
     [SerializeField] private Transform player;
     [SerializeField] private float top;
     [SerializeField] private float bottom;
@@ -50,7 +51,7 @@ public class vehicleSpawning : MonoBehaviour
         {
             float[] positions = {top,bottom};
             float value = positions[UnityEngine.Random.Range(0,2)];
-            GameObject newVehicle = Instantiate(vehicles[UnityEngine.Random.Range(0,6)], new Vector3(transform.position.x, value, transform.position.z), Quaternion.identity);
+            GameObject newVehicle = Instantiate(vehicles[UnityEngine.Random.Range(0,maxVehicle)], new Vector3(transform.position.x, value, transform.position.z), Quaternion.identity);
             newVehicle.transform.parent = container.transform; // to keep the vehicle in a container
             vehicleBehaviour vehicleB = newVehicle.GetComponent<vehicleBehaviour>();
             if(vehicleB == null)
