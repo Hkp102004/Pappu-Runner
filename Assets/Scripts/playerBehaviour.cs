@@ -95,6 +95,11 @@ public class playerBehaviour : MonoBehaviour
             transform.position = new Vector3(-3.5f, transform.position.y, transform.position.z);
         }
 
+        if(transform.position.x >= 353)
+        {
+            transform.position = new Vector3(353, transform.position.y, transform.position.z); // to wrap the player at end
+        }
+
         if(Input.GetKeyDown(KeyCode.Space) && jumpcount<maxjump && alive)  //player jump logic
         {
             body.linearVelocity = new Vector3(body.linearVelocityX,0,0);
@@ -155,9 +160,9 @@ public class playerBehaviour : MonoBehaviour
         }
         if(lives==0)
         {
-            Destroy(gameObject);
             ui.DeadScreen();
             alive = false;
+            Destroy(gameObject);
         }
     }
 
