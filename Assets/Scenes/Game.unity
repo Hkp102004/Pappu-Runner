@@ -733,7 +733,7 @@ Transform:
   m_GameObject: {fileID: 394481131}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 353.3, y: 9.2, z: 0}
+  m_LocalPosition: {x: 303.9, y: 6.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1288,7 +1288,7 @@ GameObject:
   - component: {fileID: 653230307}
   - component: {fileID: 653230308}
   m_Layer: 0
-  m_Name: VehicleSpawner (3)
+  m_Name: VehicleSpawner fourth
   m_TagString: V Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1628,7 +1628,7 @@ GameObject:
   - component: {fileID: 817920985}
   - component: {fileID: 817920986}
   m_Layer: 0
-  m_Name: VehicleSpawner (2)
+  m_Name: VehicleSpawner three
   m_TagString: V Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1975,6 +1975,37 @@ Transform:
   m_Children:
   - {fileID: 943069145}
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &860110532
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 860110533}
+  m_Layer: 0
+  m_Name: VehicleContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &860110533
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860110532}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1384854621}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &877479322
 GameObject:
@@ -4710,6 +4741,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1347478271}
   m_CullTransparentMesh: 1
+--- !u!1 &1384854620
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1384854621}
+  - component: {fileID: 1384854622}
+  m_Layer: 0
+  m_Name: VehicleSpawner fifth
+  m_TagString: V Spawner
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1384854621
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384854620}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 366.98, y: 5.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 860110533}
+  m_Father: {fileID: 1764484647}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1384854622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384854620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e01f92f60f58ef24891e746b9d457a5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  vehicles:
+  - {fileID: 5417439394470629921, guid: 3923f6ac32dddad47a99e199547f7d0b, type: 3}
+  - {fileID: 8814753091529759826, guid: f0bddfa27b7472448a88579263eae5f3, type: 3}
+  - {fileID: 6602592315541724402, guid: 88accd441a668a941be4e8cab55f1cff, type: 3}
+  - {fileID: 2471271711908508940, guid: d011e43a55f84aa4faf5afac114fdea8, type: 3}
+  - {fileID: 2495301430888297685, guid: e9468351bb2836c4da10ca67213268e1, type: 3}
+  maxVehicle: 5
+  player: {fileID: 1795047589}
+  top: 9.34
+  bottom: 8.13
+  spawnRate: 0.8
+  active: 0
+  time: 0
+  startDist: 71
+  pastDist: 0
+  vehicleMax: 303
+  container: {fileID: 860110532}
 --- !u!1 &1442395641
 GameObject:
   m_ObjectHideFlags: 0
@@ -5329,7 +5422,7 @@ GameObject:
   - component: {fileID: 1738461391}
   - component: {fileID: 1738461392}
   m_Layer: 0
-  m_Name: VehicleSpawner (1)
+  m_Name: 'VehicleSpawner two '
   m_TagString: V Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5414,6 +5507,7 @@ Transform:
   - {fileID: 26971890}
   - {fileID: 1820630149}
   - {fileID: 653230307}
+  - {fileID: 1384854621}
   - {fileID: 817920985}
   - {fileID: 1738461391}
   m_Father: {fileID: 0}
@@ -5874,7 +5968,7 @@ GameObject:
   - component: {fileID: 1820630149}
   - component: {fileID: 1820630148}
   m_Layer: 0
-  m_Name: VehicleSpawner
+  m_Name: VehicleSpawner one
   m_TagString: V Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
