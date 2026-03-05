@@ -151,6 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82c00e246fecc1b42a250761956a1395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::bullet
-  speed: 15
+  speed: 18
   deathzone: 18
   player: {fileID: 0}
