@@ -179,8 +179,9 @@ public class playerBehaviour : MonoBehaviour
 
     public void WinCheck()
     {
-       if(transform.position.x >= 258.3f)
+       if(transform.position.x >= 350)
         {
+            alive = false;
             ui.WinScreen();
         }
     }
