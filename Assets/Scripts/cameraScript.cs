@@ -20,6 +20,11 @@ public class cameraScript : MonoBehaviour
         Vector3 desiredPosition = player.position + offset;
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
         transform.position = new Vector3(smoothedPosition.x, smoothedPosition.y, offset.z);
+
+        if(player.position.x >= 345)
+        {
+            offset = new Vector3(0, 1, -10.66f);
+        }
     }
 }
     

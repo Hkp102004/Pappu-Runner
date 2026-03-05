@@ -50,6 +50,11 @@ public class spawner : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             return;
         }
+
+        if(player_position.position.x >= 330)
+        {
+            active = false;
+        }
     }
 
     public void StopSpawning()
