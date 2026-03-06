@@ -33,7 +33,7 @@ public class spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(player_position.position.x + 17, player_position.position.y, transform.position.z);
+        transform.position = new Vector3(player_position.position.x + 20, player_position.position.y, transform.position.z);
 
         if(spawnRate <= 0 && active)
         {
