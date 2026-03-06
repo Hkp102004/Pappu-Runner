@@ -108,13 +108,13 @@ public class playerBehaviour : MonoBehaviour
             jumpcount++;
         }
 
-        if(horiInput > 0.1f) //this is the animation for movement   
+        if(horiInput > 0.1f && alive) //this is the animation for movement   
         {
             animator.ResetTrigger("reset");
             animator.ResetTrigger("left");
             animator.SetTrigger("right");
         }
-        else if(horiInput < -0.1f)
+        else if(horiInput < -0.1f && alive)
         {
             animator.ResetTrigger("reset");
             animator.ResetTrigger("right");
@@ -168,7 +168,7 @@ public class playerBehaviour : MonoBehaviour
 
     public void Shield()  
     {
-        if(Input.GetKeyDown(KeyCode.Q) && shieldactive)
+        if(Input.GetKeyDown(KeyCode.Q) && shieldactive &&alive)
         {
             animator.SetTrigger("shield");
             invincible = true;
