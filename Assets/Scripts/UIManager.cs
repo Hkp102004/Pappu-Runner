@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private float waitTime;
     [SerializeField] private Text score;
+    [SerializeField] private Text shotScore;
     [SerializeField] private Sprite[] lives_images; //array of lives display
     [SerializeField] private Image lives_displayer;
     [SerializeField] private GameObject gameover_Screen;
@@ -19,6 +20,7 @@ public class UIManager : MonoBehaviour
     spawner spawn;
     playerBehaviour player;
     private int scorevar=0;
+    private int shotScorevar = 1;
     void Start()
     {
         spawn = GameObject.FindGameObjectWithTag("Spawner").GetComponent<spawner>();
@@ -84,6 +86,12 @@ public class UIManager : MonoBehaviour
         CollectionSound.Play();
         scorevar+=1;
         score.text = scorevar.ToString();
+    }
+
+    public void AddShotscore()
+    {
+        shotScorevar+=1;
+        shotScore.text = shotScorevar.ToString();
     }
 
     public void UpdateLive(int lives)

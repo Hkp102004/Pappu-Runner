@@ -1,4 +1,5 @@
 using Unity.VisualScripting;
+using UnityEditor.Rendering.UITK.ShaderGraph;
 using UnityEngine;
 
 public class rock : MonoBehaviour
@@ -10,6 +11,7 @@ public class rock : MonoBehaviour
     CircleCollider2D rockCollider;
     [SerializeField] private Animator explosion;
     [SerializeField] private AudioSource blastsound;
+    UIManager ui;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -17,6 +19,7 @@ public class rock : MonoBehaviour
         rockCollider = GetComponent<CircleCollider2D>();
         explosion = GetComponent<Animator>();
         blastsound = GetComponent<AudioSource>();
+        ui = GameObject.FindGameObjectWithTag("UI").GetComponent<UIManager>();
         if(player == null)
         {
             Debug.LogError("Tranform of player is missing in rock script");
@@ -40,6 +43,11 @@ public class rock : MonoBehaviour
         if(blastsound == null)
         {
             Debug.LogError("Blast sound is missing in rock script");
+            return;
+        }
+        if(ui == null)
+        {
+            Debug.LogError("ui manager is missing from rock script");
             return;
         }
     }
@@ -74,6 +82,7 @@ public class rock : MonoBehaviour
             speed = 0;
             rockCollider.enabled = false;
             explosion.SetTrigger("blast");
+            ui.AddShotscore();
             Destroy(gameObject,1.2f);
         }
         if(collision.gameObject.tag == "Ground")
