@@ -168,7 +168,7 @@ public class playerBehaviour : MonoBehaviour
 
     public void Shield()  
     {
-        if(Input.GetKeyDown(KeyCode.Q) && shieldactive &&alive)
+        if(Input.GetKeyDown(KeyCode.Q) && shieldactive && alive)
         {
             animator.SetTrigger("shield");
             invincible = true;
@@ -195,14 +195,14 @@ public class playerBehaviour : MonoBehaviour
 
     IEnumerator ShieldOverload()  
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.9f);
         shieldactive = false;
         invincible = false;
     }
     
     IEnumerator ShieldCooldown()
     {
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(5f);
         shieldactive = true;
         shieldRecharge.Play();
     }
