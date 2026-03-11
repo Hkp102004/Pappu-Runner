@@ -162,7 +162,7 @@ public class playerBehaviour : MonoBehaviour
         {
             ui.DeadScreen();
             alive = false;
-            Destroy(gameObject);
+            // Destroy(gameObject);
         }
     }
 
