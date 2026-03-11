@@ -1,5 +1,3 @@
-using Unity.IntegerTime;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class cloudSpawner : MonoBehaviour
@@ -37,7 +35,7 @@ public class cloudSpawner : MonoBehaviour
 
         if(time>=rate)
         {
-            Instantiate(cloud, new Vector3(transform.position.x, UnityEngine.Random.Range(13,15) , transform.position.z), quaternion.identity);
+            Instantiate(cloud, new Vector3(transform.position.x, UnityEngine.Random.Range(13,15) , transform.position.z), Quaternion.identity);
             time=0;
         }
         else
