@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class cloudBehaviour : MonoBehaviour
 {
-    private float deathzone = 15;
+    private float deathzone = 19;
     private float speed = 1.5f;
     Transform player;
     void Start()
