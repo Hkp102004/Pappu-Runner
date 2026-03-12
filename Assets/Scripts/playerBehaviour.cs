@@ -5,13 +5,15 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class playerBehaviour : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private Rigidbody2D body;
     [SerializeField] private float speed = 10f;
-    [SerializeField] private float height = 400f;
+    [SerializeField] private float height = 400f; //the height of jump
+    [SerializeField] private float powerheight = 200; //the powerup height to be added to height
     [SerializeField] private GameObject[] bulletPrefabs; //prefaab of the bullet that will be instantiated //working
     [SerializeField] private float firerate = 0.5f;
     [SerializeField] private int lives = 3; //this is for lives of player
@@ -80,7 +82,7 @@ public class playerBehaviour : MonoBehaviour
         WinCheck();
     }
 
-    public void Movement()
+    public void Movement() //walking and jumpimg. plus animations
     {
         float horiInput = Input.GetAxis("Horizontal"); //key maps for fonrizontal inputs
 
@@ -128,7 +130,7 @@ public class playerBehaviour : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision) //double jump check 
     {
         if(collision.gameObject.tag == "Ground")
         {
@@ -136,7 +138,7 @@ public class playerBehaviour : MonoBehaviour
         }
     }
 
-    public void Shoot()
+    public void Shoot()  //shooting logic
     {
         if(Input.GetKeyDown(KeyCode.E) && firerate <= 0 && alive)
         {
@@ -151,7 +153,7 @@ public class playerBehaviour : MonoBehaviour
         }
     }
 
-    public void Damage()
+    public void Damage()  //damage system
     {
         if(lives>0 && !invincible) //bug should be fixed here
         {
@@ -166,7 +168,7 @@ public class playerBehaviour : MonoBehaviour
         }
     }
 
-    public void Shield()  
+    public void Shield()  //shield
     {
         if(Input.GetKeyDown(KeyCode.Q) && shieldactive && alive)
         {
@@ -177,12 +179,25 @@ public class playerBehaviour : MonoBehaviour
         }
     }
 
-    public void WinCheck()
+    public void WinCheck()  //checks when the player won the game
     {
        if(transform.position.x >= 350)
         {
             alive = false;
             ui.WinScreen();
+        }
+    }
+
+    public void powerup()
+    {
+        if(lives==3)
+        {
+            height+=powerheight;
+            StartCoroutine(PowerupCooldown());
+        }
+        else
+        {
+            lives++;
         }
     }
 
@@ -205,6 +220,12 @@ public class playerBehaviour : MonoBehaviour
         yield return new WaitForSeconds(5f);
         shieldactive = true;
         shieldRecharge.Play();
+    }
+
+    IEnumerator PowerupCooldown()
+    {
+        yield return new WaitForSeconds(5f);
+        height -= powerheight;
     }
 
 }
