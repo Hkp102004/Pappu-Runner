@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private AudioSource gamewinSound;
     spawner spawn;
     playerBehaviour player;
+    PowerSpawner poweupSpawner;
     private int scorevar=0;
     private int shotScorevar = 0;
     void Start()
@@ -26,6 +27,7 @@ public class UIManager : MonoBehaviour
         spawn = GameObject.FindGameObjectWithTag("Spawner").GetComponent<spawner>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<playerBehaviour>();
         gameover_Screen.gameObject.SetActive(false);
+        poweupSpawner = GameObject.FindGameObjectWithTag("PowerSpawner").GetComponent<PowerSpawner>();
         if(score==null)
         {
             Debug.LogError("The score text or memory crystal text is missing in uiscript");
@@ -71,6 +73,11 @@ public class UIManager : MonoBehaviour
             Debug.LogError("Game win sound is not in uimanager script");
             return;
         }
+        if(poweupSpawner == null)
+        {
+            Debug.LogError("powerup spawner is missing from the uiManager script");
+            return;
+        }
         gamewinScreen.gameObject.SetActive(false);
         lives_displayer.sprite = lives_images[3];
     }
@@ -78,7 +85,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        PowerCheck();
     }
 
     public void AddScore()
@@ -111,5 +118,15 @@ public class UIManager : MonoBehaviour
     {
         gamewinSound.Play();
         gamewinScreen.gameObject.SetActive(true);
+    }
+
+    public void PowerCheck()
+    {
+        if(shotScorevar == 40)
+        {
+            poweupSpawner.spawn();
+            shotScorevar = 0;
+            shotScore.text = shotScorevar.ToString();
+        }
     }
 }

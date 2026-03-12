@@ -11,6 +11,7 @@ TagManager:
   - Spawner
   - V Spawner
   - vehicles
+  - PowerSpawner
   layers:
   - Default
   - TransparentFX

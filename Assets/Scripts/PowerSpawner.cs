@@ -40,7 +40,7 @@ public class PowerSpawner : MonoBehaviour
     }
 
 
-    void spawn()
+    public void spawn()
     {
         Instantiate(powerup, transform.position, Quaternion.identity);
     }
