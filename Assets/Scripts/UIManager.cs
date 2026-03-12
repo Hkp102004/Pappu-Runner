@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour
     spawner spawn;
     playerBehaviour player;
     private int scorevar=0;
-    private int shotScorevar = 1;
+    private int shotScorevar = 0;
     void Start()
     {
         spawn = GameObject.FindGameObjectWithTag("Spawner").GetComponent<spawner>();
