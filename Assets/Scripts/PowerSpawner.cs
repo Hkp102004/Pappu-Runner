@@ -5,6 +5,7 @@ public class PowerSpawner : MonoBehaviour
 {
     Transform player;
     [SerializeField] private Vector3 offset;
+    [SerializeField] private GameObject powerup;
 
     void Start()
     {
@@ -19,6 +20,12 @@ public class PowerSpawner : MonoBehaviour
             Debug.LogError("player gameobject is missing in powerSpawner script");
             return;
         }
+
+        if(powerup == null)
+        {
+            Debug.LogError("The powerup is missing form the powerup spawner");
+            return;
+        }
     }
 
     // Update is called once per frame
@@ -30,5 +37,11 @@ public class PowerSpawner : MonoBehaviour
     void position()
     {
         transform.position = new Vector3(player.position.x+ offset.x, player.position.y+offset.y, transform.position.z);
+    }
+
+
+    void spawn()
+    {
+        Instantiate(powerup, transform.position, Quaternion.identity);
     }
 }

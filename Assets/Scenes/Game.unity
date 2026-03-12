@@ -594,6 +594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   offset: {x: 12, y: 13, z: 0}
+  powerup: {fileID: 6943020022538325885, guid: 61c7eccc5e56f784a93cbb22203f2643, type: 3}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
