@@ -198,6 +198,7 @@ public class playerBehaviour : MonoBehaviour
         else
         {
             lives++;
+            ui.UpdateLive(lives);
         }
     }
 
