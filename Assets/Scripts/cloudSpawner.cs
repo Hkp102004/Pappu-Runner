@@ -4,7 +4,8 @@ public class cloudSpawner : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private Transform player;
-    private float pivot = 23;
+    private float pivotx = 23;
+    private float pivoty = 10;
     [SerializeField] private float time=0;
     private float rate = 9;
     [SerializeField] private GameObject cloud;
@@ -27,7 +28,7 @@ public class cloudSpawner : MonoBehaviour
 
     void position()
     {
-        transform.position = new Vector3(player.position.x + pivot, 14, transform.position.z);
+        transform.position = new Vector3(player.position.x + pivotx, player.position.y+pivoty, transform.position.z);
     }
 
     void spawning()

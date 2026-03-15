@@ -188,7 +188,7 @@ public class playerBehaviour : MonoBehaviour
         }
     }
 
-    public void powerup()
+    public void powerup() //this is the logic of the powerup
     {
         if(lives==3)
         {
