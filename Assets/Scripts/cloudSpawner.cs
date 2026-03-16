@@ -36,7 +36,7 @@ public class cloudSpawner : MonoBehaviour
 
         if(time>=rate)
         {
-            Instantiate(cloud, new Vector3(transform.position.x, UnityEngine.Random.Range(13,15) , transform.position.z), Quaternion.identity);
+            Instantiate(cloud, new Vector3(transform.position.x, UnityEngine.Random.Range(pivoty,pivoty+2) , transform.position.z), Quaternion.identity);
             time=0;
         }
         else
