@@ -174,6 +174,7 @@ public class playerBehaviour : MonoBehaviour
         {
             animator.SetTrigger("shield");
             invincible = true;
+            shieldSound.Play();
             StartCoroutine(ShieldOverload());
             StartCoroutine(ShieldCooldown());
         }
