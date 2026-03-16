@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject gameover_Screen;
     [SerializeField] private AudioSource CollectionSound;
     [SerializeField] private AudioSource GameOverSound;
+    [SerializeField] private AudioSource bgMusic;
     [SerializeField] private AudioSource DamageSound;
     [SerializeField] private GameObject gamewinScreen;
     [SerializeField] private AudioSource gamewinSound;
@@ -78,6 +79,11 @@ public class UIManager : MonoBehaviour
             Debug.LogError("powerup spawner is missing from the uiManager script");
             return;
         }
+        if(bgMusic==null)
+        {
+            Debug.LogError("Backgorund music is missing");
+            return;
+        }
         gamewinScreen.gameObject.SetActive(false);
         lives_displayer.sprite = lives_images[3];
     }
@@ -111,13 +117,14 @@ public class UIManager : MonoBehaviour
     {
         gameover_Screen.gameObject.SetActive(true);
         GameOverSound.Play();
+        bgMusic.Stop();
         spawn.StopSpawning();
     }
 
     public void WinScreen()
     {
-        gamewinSound.Play();
         gamewinScreen.gameObject.SetActive(true);
+        gamewinSound.Play();
     }
 
     public void PowerCheck()
