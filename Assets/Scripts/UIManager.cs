@@ -146,7 +146,7 @@ public class UIManager : MonoBehaviour
 
     public void PowerCheck()
     {
-        if(shotScorevar == 40)
+        if(shotScorevar == 20)
         {
             poweupSpawner.spawn();
             shotScorevar = 0;
