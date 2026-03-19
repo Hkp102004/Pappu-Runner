@@ -16,8 +16,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private AudioSource GameOverSound;
     [SerializeField] private AudioSource bgMusic;
     [SerializeField] private AudioSource DamageSound;
-    [SerializeField] private GameObject gamewinScreen;
+    [SerializeField] private GameObject gamewin_win; //display if all votes are collected
+    [SerializeField] private GameObject gamewin_lose;  //display if even one vote is missing
     [SerializeField] private AudioSource gamewinSound;
+    [SerializeField] private AudioSource gameloseSound;
     spawner spawn;
     playerBehaviour player;
     PowerSpawner poweupSpawner;
@@ -64,10 +66,14 @@ public class UIManager : MonoBehaviour
             Debug.LogError("The damage sound is missing in UIManager script");
             return;
         }
-        if(gamewinScreen == null)
+        if(gamewin_win == null)
         {
             Debug.LogError("Game win screen is missing in UIManager script");
             return;
+        }
+        if(gamewin_lose==null)
+        {
+            Debug.LogError("The losing part of the gamewin_lose screen is missing in ui manager");
         }
         if(gamewinSound == null)
         {
@@ -84,7 +90,8 @@ public class UIManager : MonoBehaviour
             Debug.LogError("Backgorund music is missing");
             return;
         }
-        gamewinScreen.gameObject.SetActive(false);
+        gamewin_win.gameObject.SetActive(false);
+        gamewin_lose.gameObject.SetActive(false);
         lives_displayer.sprite = lives_images[3];
     }
 
@@ -123,8 +130,18 @@ public class UIManager : MonoBehaviour
 
     public void WinScreen()
     {
-        gamewinScreen.gameObject.SetActive(true);
-        gamewinSound.Play();
+        if(scorevar == 8)
+        {
+            gamewin_win.gameObject.SetActive(true);
+            gamewinSound.Play();
+        }
+        else
+        {
+            gamewin_lose.gameObject.SetActive(true);
+            gameloseSound.Play();
+        }
+        // gamewin_win.gameObject.SetActive(true);  //working on this shi
+        // gamewinSound.Play();
     }
 
     public void PowerCheck()
