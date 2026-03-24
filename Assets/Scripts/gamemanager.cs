@@ -1,3 +1,4 @@
+using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -28,11 +29,16 @@ public class gamemanager : MonoBehaviour
         pause();
     }
 
-    public void pause()
+    public void pause() //to start the pause menu
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             ui.paused();
         }
+    }
+
+    public void play() //to resume the game
+    {
+        ui.play();
     }
 }

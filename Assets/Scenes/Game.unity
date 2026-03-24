@@ -7003,7 +7003,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1288870549
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9537,6 +9537,7 @@ MonoBehaviour:
   gamewin_lose: {fileID: 166369260}
   gamewinSound: {fileID: 1675967094}
   gameloseSound: {fileID: 34417409}
+  pauseMenu: {fileID: 1288870548}
 --- !u!1 &1973711388
 GameObject:
   m_ObjectHideFlags: 0
@@ -9835,7 +9836,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1738103301}
         m_TargetAssemblyTypeName: gamemanager, Assembly-CSharp
-        m_MethodName: Restart
+        m_MethodName: play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

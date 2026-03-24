@@ -167,4 +167,12 @@ public class UIManager : MonoBehaviour
         player.stopPlayer();
         bgMusic.Stop();
     }
+
+    public void play()
+    {
+        pauseMenu.gameObject.SetActive(false);
+        spawn.RestartSpawn();
+        player.startPlayer();
+        bgMusic.Play();
+    }
 }
