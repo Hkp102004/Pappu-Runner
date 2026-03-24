@@ -1,12 +1,6 @@
-using System;
 using System.Collections;
-using System.Runtime.CompilerServices;
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
-
 public class playerBehaviour : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created

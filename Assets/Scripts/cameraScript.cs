@@ -1,7 +1,4 @@
-using UnityEditor.Rendering.Universal;
-using System.Diagnostics;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class cameraScript : MonoBehaviour
 {

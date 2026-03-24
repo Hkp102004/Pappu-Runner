@@ -1,5 +1,3 @@
-using Unity.VisualScripting;
-using UnityEditor.Rendering.UITK.ShaderGraph;
 using UnityEngine;
 
 public class rock : MonoBehaviour
