@@ -155,7 +155,7 @@ public class playerBehaviour : MonoBehaviour
 
     public void Damage()  //damage system
     {
-        if(lives>0 && !invincible) //bug should be fixed here
+        if(lives>0 && !invincible &&alive) //bug should be fixed here
         {
             lives--;
             ui.UpdateLive(lives);
@@ -201,6 +201,16 @@ public class playerBehaviour : MonoBehaviour
             lives++;
             ui.UpdateLive(lives);
         }
+    }
+
+    public void stopPlayer()
+    {
+        alive=false;
+    }
+
+    public void startPlayer()
+    {
+        alive = true;
     }
 
     IEnumerator ShootingDelay(float delay)

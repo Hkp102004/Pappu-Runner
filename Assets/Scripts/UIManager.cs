@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject gamewin_lose;  //display if even one vote is missing
     [SerializeField] private AudioSource gamewinSound;
     [SerializeField] private AudioSource gameloseSound;
+    [SerializeField] private GameObject pauseMenu;
     spawner spawn;
     playerBehaviour player;
     PowerSpawner poweupSpawner;
@@ -90,6 +91,11 @@ public class UIManager : MonoBehaviour
             Debug.LogError("Backgorund music is missing");
             return;
         }
+        if(pauseMenu == null)
+        {
+            Debug.LogError("pause menu is missing from the uiManager");
+            return;
+        }
         gamewin_win.gameObject.SetActive(false);
         gamewin_lose.gameObject.SetActive(false);
         lives_displayer.sprite = lives_images[3];
@@ -152,5 +158,13 @@ public class UIManager : MonoBehaviour
             shotScorevar = 0;
             shotScore.text = shotScorevar.ToString();
         }
+    }
+
+    public void paused()
+    {
+        pauseMenu.gameObject.SetActive(true);
+        spawn.StopSpawning();
+        player.stopPlayer();
+        bgMusic.Stop();
     }
 }
