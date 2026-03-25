@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class gamemanager : MonoBehaviour
 {
     UIManager ui;
+    bool paused;
     public void Restart()
     {
         SceneManager.LoadScene(1); // 1 is for game scene
@@ -25,19 +26,24 @@ public class gamemanager : MonoBehaviour
     }
     void Update()
     {
-        pause();
-    }
-
-    public void pause() //to start the pause menu
-    {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            ui.paused();
+            if(paused) play();
+            else pause();
         }
+    }
+
+    private void pause() //to start the pause menu
+    {
+        ui.paused();
+        paused = true;
+        Time.timeScale=0f;
     }
 
     public void play() //to resume the game
     {
         ui.play();
+        Time.timeScale =1f;
+        paused = false;
     }
 }
