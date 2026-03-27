@@ -1,6 +1,9 @@
 using System.Collections;
+using JetBrains.Annotations;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 public class playerBehaviour : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,6 +22,7 @@ public class playerBehaviour : MonoBehaviour
     [SerializeField] private AudioSource ShootingSound;
     [SerializeField] private AudioSource shieldSound;
     private int jumpcount = 0;
+    private float horiInput = 0f;
     private int maxjump = 2;
     private bool alive = true;
     private bool invincible;
@@ -78,10 +82,10 @@ public class playerBehaviour : MonoBehaviour
 
     public void Movement() //walking and jumpimg. plus animations
     {
-        float horiInput = Input.GetAxis("Horizontal"); //key maps for fonrizontal inputs
+        // horiInput = Input.GetAxis("Horizontal"); //key maps for fonrizontal inputs    //removing for working with phone
 
         Vector3 direction = new Vector3(horiInput,0,0);
-        if(alive) //moving right and left                                                     //working
+        if(alive) //moving right and left                                                     
         {
             transform.Translate(direction * speed * Time.deltaTime);
         }
@@ -122,6 +126,12 @@ public class playerBehaviour : MonoBehaviour
             animator.ResetTrigger("left");
             animator.SetTrigger("reset");
         }
+    }
+
+    //mobile settings
+    public void SetHorizontal(float value)
+    {
+        horiInput = value;
     }
 
     private void OnCollisionEnter2D(Collision2D collision) //double jump check 
