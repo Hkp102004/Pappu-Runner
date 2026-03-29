@@ -100,7 +100,7 @@ public class playerBehaviour : MonoBehaviour
             transform.position = new Vector3(353, transform.position.y, transform.position.z); // to wrap the player at end
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && jumpcount<maxjump && alive)  //player jump logic
+        if(Input.GetKeyDown(KeyCode.Space) && jumpcount < maxjump && alive)  //player jump logic
         {
             body.linearVelocity = new Vector3(body.linearVelocityX,0,0);
             jumpSound.Play();
@@ -125,6 +125,17 @@ public class playerBehaviour : MonoBehaviour
             animator.ResetTrigger("right");
             animator.ResetTrigger("left");
             animator.SetTrigger("reset");
+        }
+    }
+
+    public void jump()  //jump function for moboile controls
+    {
+        if(jumpcount < maxjump && alive)
+        {
+            body.linearVelocity = new Vector3(body.linearVelocityX,0,0);
+            jumpSound.Play();
+            body.AddForce(Vector3.up * height, ForceMode2D.Impulse);
+            jumpcount++;
         }
     }
 
@@ -176,7 +187,7 @@ public class playerBehaviour : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Q) && shieldactive && alive)
         {
-            animator.SetTrigger("shield");
+            animator.SetTrigger("shield"); 
             invincible = true;
             shieldSound.Play();
             StartCoroutine(ShieldOverload());
