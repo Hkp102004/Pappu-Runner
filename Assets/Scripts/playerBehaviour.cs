@@ -2,6 +2,7 @@ using System.Collections;
 using JetBrains.Annotations;
 using Unity.Mathematics;
 using Unity.VisualScripting;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Serialization;
 public class playerBehaviour : MonoBehaviour
@@ -160,6 +161,20 @@ public class playerBehaviour : MonoBehaviour
             // animator.SetTrigger("shoot");  //triggering the shooting animation   
             animator.SetTrigger("throw");
             StartCoroutine(ShootingDelay(shootdelay));  
+            firerate = 0.5f;
+        }
+        else
+        {
+            firerate -= Time.deltaTime;
+        }
+    }
+
+    public void ShootMobile()  //shooting logic for mobile controls
+    {
+        if(firerate <= 0 && alive)
+        {
+            animator.SetTrigger("throw");
+            StartCoroutine(ShootingDelay(shootdelay));
             firerate = 0.5f;
         }
         else
