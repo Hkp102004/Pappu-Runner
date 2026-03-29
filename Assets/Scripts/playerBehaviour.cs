@@ -1,10 +1,6 @@
 using System.Collections;
-using JetBrains.Annotations;
 using Unity.Mathematics;
-using Unity.VisualScripting;
-using UnityEditor.Animations;
 using UnityEngine;
-using UnityEngine.Serialization;
 public class playerBehaviour : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,12 +17,12 @@ public class playerBehaviour : MonoBehaviour
     [SerializeField] private AudioSource jumpSound;
     [SerializeField] private AudioSource shieldRecharge;
     [SerializeField] private AudioSource ShootingSound;
-    [SerializeField] private AudioSource shieldSound;
     private int jumpcount = 0;
     private float horiInput = 0f;
     private int maxjump = 2;
     private bool alive = true;
     private bool invincible;
+    private bool shield = false; //for mobile controls
     UIManager ui;
 
     void Start()
@@ -36,6 +32,7 @@ public class playerBehaviour : MonoBehaviour
        jumpSound = GetComponent<AudioSource>(); //this will get the audio source
        shieldactive = true;
        alive = true;
+       shield = false;
        if(bulletPrefabs==null)
         {
             Debug.LogError("Bullet prefab is missing in playerBehaviour script");
@@ -64,11 +61,6 @@ public class playerBehaviour : MonoBehaviour
         if(ShootingSound == null)
         {
             Debug.LogError("Shooting sould or audio source is missing in playerBehavior script");
-            return;
-        }
-        if(shieldSound == null)
-        {
-            Debug.LogError("Shield sound is missing in playerNehaviour script");
             return;
         }
     }
@@ -200,14 +192,19 @@ public class playerBehaviour : MonoBehaviour
 
     public void Shield()  //shield
     {
-        if(Input.GetKeyDown(KeyCode.Q) && shieldactive && alive)
+        if((Input.GetKeyDown(KeyCode.Q) || shield) && shieldactive && alive)
         {
             animator.SetTrigger("shield"); 
             invincible = true;
-            shieldSound.Play();
+            shield = false;
             StartCoroutine(ShieldOverload());
             StartCoroutine(ShieldCooldown());
         }
+    }
+    
+    public void ShieldMobile()
+    {
+        shield = true;
     }
 
     public void WinCheck()  //checks when the player won the game
@@ -252,7 +249,7 @@ public class playerBehaviour : MonoBehaviour
 
     IEnumerator ShieldOverload()  
     {
-        yield return new WaitForSeconds(1.9f);
+        yield return new WaitForSeconds(2f);
         shieldactive = false;
         invincible = false;
     }
