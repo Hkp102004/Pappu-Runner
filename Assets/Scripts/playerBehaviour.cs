@@ -67,6 +67,7 @@ public class playerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        keyboardMovement();  // Get input first
         Movement();
         Shoot();
         Shield();
@@ -93,12 +94,9 @@ public class playerBehaviour : MonoBehaviour
             transform.position = new Vector3(353, transform.position.y, transform.position.z); // to wrap the player at end
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && jumpcount < maxjump && alive)  //player jump logic
+        if(Input.GetKeyDown(KeyCode.Space))  //player jump logic for keyboard controls
         {
-            body.linearVelocity = new Vector3(body.linearVelocityX,0,0);
-            jumpSound.Play();
-            body.AddForce(Vector3.up * height, ForceMode2D.Impulse);
-            jumpcount++;
+            jump(); 
         }
 
         if(horiInput > 0.1f && alive) //this is the animation for movement   
@@ -121,6 +119,11 @@ public class playerBehaviour : MonoBehaviour
         }
     }
 
+    void keyboardMovement() //this is for keyboard controls, so both are working at the same time
+    {
+        horiInput = Input.GetAxis("Horizontal"); //key maps for fonrizontal inputs
+    }
+
     public void jump()  //jump function for moboile controls
     {
         if(jumpcount < maxjump && alive)
@@ -133,7 +136,7 @@ public class playerBehaviour : MonoBehaviour
     }
 
     //mobile settings
-    public void SetHorizontal(float value)
+    public void SetHorizontal(float value) //for mobile controls movements
     {
         horiInput = value;
     }
@@ -202,7 +205,7 @@ public class playerBehaviour : MonoBehaviour
         }
     }
     
-    public void ShieldMobile()
+    public void ShieldMobile() //shield activation for mobile controls
     {
         shield = true;
     }
@@ -230,12 +233,12 @@ public class playerBehaviour : MonoBehaviour
         }
     }
 
-    public void stopPlayer()
+    public void stopPlayer() //will turn off all the controls of the player
     {
         alive=false;
     }
 
-    public void startPlayer()
+    public void startPlayer() //will make all controls active again
     {
         alive = true;
     }
@@ -247,14 +250,14 @@ public class playerBehaviour : MonoBehaviour
         Instantiate(bulletPrefabs[UnityEngine.Random.Range(0,2)], transform.position + new Vector3(0.7f,0.5f,0) , quaternion.identity);  
     }
 
-    IEnumerator ShieldOverload()  
+    IEnumerator ShieldOverload()   //cooldown for shield as when invincibility ends
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2f);    
         shieldactive = false;
         invincible = false;
     }
     
-    IEnumerator ShieldCooldown()
+    IEnumerator ShieldCooldown()  //cooldown for when shield will be active again
     {
         yield return new WaitForSeconds(5f);
         shieldactive = true;
