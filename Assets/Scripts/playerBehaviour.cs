@@ -67,11 +67,11 @@ public class playerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        keyboardMovement();  // Get input first
-        Movement();
+        Movement(); //movemnt of player
         Shoot();
         Shield();
         WinCheck();
+        // keyboardMovement(); //keyboard movement
     }
 
     public void Movement() //walking and jumpimg. plus animations
@@ -119,10 +119,10 @@ public class playerBehaviour : MonoBehaviour
         }
     }
 
-    void keyboardMovement() //this is for keyboard controls, so both are working at the same time
-    {
-        horiInput = Input.GetAxis("Horizontal"); //key maps for fonrizontal inputs
-    }
+    // void keyboardMovement() //this is for keyboard controls, so both are working at the same time will be inactive for now
+    // {
+    //     horiInput = Input.GetAxis("Horizontal"); //key maps for fonrizontal inputs
+    // }
 
     public void jump()  //jump function for moboile controls
     {
