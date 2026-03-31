@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private AudioSource gamewinSound;
     [SerializeField] private AudioSource gameloseSound;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject pausebutton;
     spawner spawn;
     playerBehaviour player;
     PowerSpawner poweupSpawner;
@@ -94,6 +95,11 @@ public class UIManager : MonoBehaviour
             Debug.LogError("pause menu is missing from the uiManager");
             return;
         }
+        if(pausebutton == null)
+        {
+            Debug.LogError("Pause button is missing from the uiManager script");
+            return;
+        }
         gamewin_win.gameObject.SetActive(false);
         gamewin_lose.gameObject.SetActive(false);
         lives_displayer.sprite = lives_images[3];
@@ -164,6 +170,7 @@ public class UIManager : MonoBehaviour
         spawn.StopSpawning();
         player.stopPlayer();
         bgMusic.Stop();
+        pausebutton.gameObject.SetActive(false);
     }
 
     public void play()
@@ -172,5 +179,6 @@ public class UIManager : MonoBehaviour
         spawn.RestartSpawn();
         player.startPlayer();
         bgMusic.Play();
+        pausebutton.gameObject.SetActive(true);
     }
 }

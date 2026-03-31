@@ -9982,6 +9982,7 @@ MonoBehaviour:
   gamewinSound: {fileID: 1675967094}
   gameloseSound: {fileID: 34417409}
   pauseMenu: {fileID: 1288870548}
+  pausebutton: {fileID: 1002727713}
 --- !u!1 &1973711388
 GameObject:
   m_ObjectHideFlags: 0
