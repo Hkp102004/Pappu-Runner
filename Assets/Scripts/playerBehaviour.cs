@@ -17,11 +17,12 @@ public class playerBehaviour : MonoBehaviour
     [SerializeField] private AudioSource jumpSound;
     [SerializeField] private AudioSource shieldRecharge;
     [SerializeField] private AudioSource ShootingSound;
-    [SerializeField] private AudioSource shieldSound;
     private int jumpcount = 0;
+    private float horiInput = 0f;
     private int maxjump = 2;
     private bool alive = true;
     private bool invincible;
+    private bool shield = false; //for mobile controls
     UIManager ui;
 
     void Start()
@@ -31,6 +32,7 @@ public class playerBehaviour : MonoBehaviour
        jumpSound = GetComponent<AudioSource>(); //this will get the audio source
        shieldactive = true;
        alive = true;
+       shield = false;
        if(bulletPrefabs==null)
         {
             Debug.LogError("Bullet prefab is missing in playerBehaviour script");
@@ -61,27 +63,23 @@ public class playerBehaviour : MonoBehaviour
             Debug.LogError("Shooting sould or audio source is missing in playerBehavior script");
             return;
         }
-        if(shieldSound == null)
-        {
-            Debug.LogError("Shield sound is missing in playerNehaviour script");
-            return;
-        }
     }
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        Movement(); //movemnt of player
         Shoot();
         Shield();
         WinCheck();
+        // keyboardMovement(); //keyboard movement
     }
 
     public void Movement() //walking and jumpimg. plus animations
     {
-        float horiInput = Input.GetAxis("Horizontal"); //key maps for fonrizontal inputs
+        // horiInput = Input.GetAxis("Horizontal"); //key maps for fonrizontal inputs    //removing for working with phone
 
         Vector3 direction = new Vector3(horiInput,0,0);
-        if(alive) //moving right and left                                                     //working
+        if(alive) //moving right and left                                                     
         {
             transform.Translate(direction * speed * Time.deltaTime);
         }
@@ -96,12 +94,9 @@ public class playerBehaviour : MonoBehaviour
             transform.position = new Vector3(353, transform.position.y, transform.position.z); // to wrap the player at end
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && jumpcount<maxjump && alive)  //player jump logic
+        if(Input.GetKeyDown(KeyCode.Space))  //player jump logic for keyboard controls
         {
-            body.linearVelocity = new Vector3(body.linearVelocityX,0,0);
-            jumpSound.Play();
-            body.AddForce(Vector3.up * height, ForceMode2D.Impulse);
-            jumpcount++;
+            jump(); 
         }
 
         if(horiInput > 0.1f && alive) //this is the animation for movement   
@@ -122,6 +117,28 @@ public class playerBehaviour : MonoBehaviour
             animator.ResetTrigger("left");
             animator.SetTrigger("reset");
         }
+    }
+
+    // void keyboardMovement() //this is for keyboard controls, so both are working at the same time will be inactive for now
+    // {
+    //     horiInput = Input.GetAxis("Horizontal"); //key maps for fonrizontal inputs
+    // }
+
+    public void jump()  //jump function for moboile controls
+    {
+        if(jumpcount < maxjump && alive)
+        {
+            body.linearVelocity = new Vector3(body.linearVelocityX,0,0);
+            jumpSound.Play();
+            body.AddForce(Vector3.up * height, ForceMode2D.Impulse);
+            jumpcount++;
+        }
+    }
+
+    //mobile settings
+    public void SetHorizontal(float value) //for mobile controls movements
+    {
+        horiInput = value;
     }
 
     private void OnCollisionEnter2D(Collision2D collision) //double jump check 
@@ -147,6 +164,20 @@ public class playerBehaviour : MonoBehaviour
         }
     }
 
+    public void ShootMobile()  //shooting logic for mobile controls
+    {
+        if(firerate <= 0 && alive)
+        {
+            animator.SetTrigger("throw");
+            StartCoroutine(ShootingDelay(shootdelay));
+            firerate = 0.5f;
+        }
+        else
+        {
+            firerate -= Time.deltaTime;
+        }
+    }
+
     public void Damage()  //damage system
     {
         if(lives>0 && !invincible &&alive) //bug should be fixed here
@@ -164,14 +195,19 @@ public class playerBehaviour : MonoBehaviour
 
     public void Shield()  //shield
     {
-        if(Input.GetKeyDown(KeyCode.Q) && shieldactive && alive)
+        if((Input.GetKeyDown(KeyCode.Q) || shield) && shieldactive && alive)
         {
-            animator.SetTrigger("shield");
+            animator.SetTrigger("shield"); 
             invincible = true;
-            shieldSound.Play();
+            shield = false;
             StartCoroutine(ShieldOverload());
             StartCoroutine(ShieldCooldown());
         }
+    }
+    
+    public void ShieldMobile() //shield activation for mobile controls
+    {
+        shield = true;
     }
 
     public void WinCheck()  //checks when the player won the game
@@ -197,12 +233,12 @@ public class playerBehaviour : MonoBehaviour
         }
     }
 
-    public void stopPlayer()
+    public void stopPlayer() //will turn off all the controls of the player
     {
         alive=false;
     }
 
-    public void startPlayer()
+    public void startPlayer() //will make all controls active again
     {
         alive = true;
     }
@@ -214,14 +250,14 @@ public class playerBehaviour : MonoBehaviour
         Instantiate(bulletPrefabs[UnityEngine.Random.Range(0,2)], transform.position + new Vector3(0.7f,0.5f,0) , quaternion.identity);  
     }
 
-    IEnumerator ShieldOverload()  
+    IEnumerator ShieldOverload()   //cooldown for shield as when invincibility ends
     {
-        yield return new WaitForSeconds(1.9f);
+        yield return new WaitForSeconds(2f);    
         shieldactive = false;
         invincible = false;
     }
     
-    IEnumerator ShieldCooldown()
+    IEnumerator ShieldCooldown()  //cooldown for when shield will be active again
     {
         yield return new WaitForSeconds(5f);
         shieldactive = true;

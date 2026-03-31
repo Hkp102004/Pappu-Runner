@@ -1,0 +1,10 @@
+# ninja log v5
+34	2268	7965037025716950	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	be676eb28b7916ad
+70	2278	7965037025716950	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	1d59bace217cea89
+0	2280	7965037025751592	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	3ae0f2f4e52eeee2
+61	2287	7965037025933694	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	9733c7e3cd6c313e
+14	2308	7965037026006527	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	dd8dd9357c289bb4
+42	2501	7965037028046337	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	ba7e5819dfc225b4
+24	2572	7965037028647243	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	df41241da926bae3
+52	2575	7965037028725524	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	86d30b778c0b1bb2
+2575	2773	7965037030832166	C:/Users/Harsh/OneDrive/Documents/Games/rahul gandhi/PollyRunner/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2f271u1y/obj/arm64-v8a/libgame.so	5a310ca5d3ee3541
